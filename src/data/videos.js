@@ -10,10 +10,11 @@ import { videos as namedPieces4Videos } from './videos/named-pieces-4.js';
 import { videos as namedPieces5Videos } from './videos/named-pieces-5.js';
 import { videos as namedPieces6Videos } from './videos/named-pieces-6.js';
 import { videos as namedPieces7Videos } from './videos/named-pieces-7.js';
+import { videos as namedPieces8Videos } from './videos/named-pieces-8.js';
+import { videos as namedPieces9Videos } from './videos/named-pieces-9.js';
 
 // Categories for filtering
 export const videoCategories = [
-  { id: 'all', name: 'All Videos', count: 0 },
   { id: 'solos-1-5', name: 'Solos #1-#5', count: 0 },
   { id: 'solos-6-10', name: 'Solos #6-#10', count: 0 },
   { id: 'named-pieces', name: 'Named Pieces', count: 0 },
@@ -124,7 +125,9 @@ export const videos = [
   ...namedPieces4Videos,
   ...namedPieces5Videos,
   ...namedPieces6Videos,
-  ...namedPieces7Videos
+  ...namedPieces7Videos,
+  ...namedPieces8Videos,
+  ...namedPieces9Videos
 ];
 
 // Update category counts based on current videos
