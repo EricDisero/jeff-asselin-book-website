@@ -1,0 +1,425 @@
+---
+// Beautiful hero section with enhanced book presentation
+---
+
+<section class="hero" id="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Master the Art of Snare Drumming
+      </h1>
+      
+      <p class="hero-subtitle">
+        Discover Chuck Burrows' revolutionary method with 47 progressive solos 
+        and over 600 instructional videos. Transform your drumming from beginner to professional.
+      </p>
+      
+      <div class="hero-cta">
+        <button class="btn-primary btn-amazon">
+          <span>Buy on Amazon</span>
+          <div class="btn-bg"></div>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="book-container">
+        <!-- Glassmorphism feature highlights -->
+        <div class="feature-highlight feature-1">
+          <div class="feature-content">
+            <span class="feature-number">600+</span>
+            <span class="feature-text">Videos</span>
+          </div>
+        </div>
+        
+        <div class="feature-highlight feature-2">
+          <div class="feature-content">
+            <span class="feature-number">47</span>
+            <span class="feature-text">Solos</span>
+          </div>
+        </div>
+        
+        <div class="feature-highlight feature-3">
+          <div class="feature-content">
+            <span class="feature-text">Progressive</span>
+            <span class="feature-text">Method</span>
+          </div>
+        </div>
+        
+        <img 
+          src="/site-assets/book-cover.webp" 
+          alt="The Rudimental Blueprint Book" 
+          class="book-image"
+        />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Down Chevron -->
+  <div class="scroll-indicator" onclick="document.getElementById('next-section')?.scrollIntoView({behavior: 'smooth'})">
+    <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    
+    /* Radial gradient positioned behind the book cover on the right */
+    background: radial-gradient(circle at 65% 50%, #1a1a1a 0%, #0f0f0f 25%, #000000 60%);
+  }
+
+  .hero-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 200;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    overflow: visible;
+    animation: titleBlurIn 1.2s ease-out;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    line-height: 1.7;
+    max-width: 520px;
+    font-weight: 400;
+    margin-top: -0.5rem;
+    animation: textBlurIn 1.2s ease-out 0.3s both;
+  }
+
+  .hero-cta {
+    margin-top: 1rem;
+    animation: textBlurIn 1.2s ease-out 0.6s both;
+  }
+
+  /* Amazon button now uses global btn-primary class */
+  .btn-amazon {
+    font-size: 1.2rem;
+    padding: 1.25rem 3rem;
+    gap: 1rem;
+  }
+
+  .btn-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .book-container {
+    position: relative;
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .book-image {
+    width: 100%;
+    height: auto;
+    /* Removed drop shadow and glow */
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+    border-radius: 8px;
+    
+    /* Default tilt and animation */
+    transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);
+    animation: bookFloatIn 1.5s ease-out;
+  }
+
+  .book-container:hover .book-image {
+    transform: perspective(1000px) rotateY(-12deg) rotateX(5deg) scale(1.05);
+  }
+
+  /* Glassmorphism feature highlights */
+  .feature-highlight {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    z-index: 3;
+    animation: featureFloatIn 1.5s ease-out;
+  }
+
+  .feature-1 {
+    top: -5%;
+    right: -10%;
+    animation-delay: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .feature-2 {
+    bottom: 35%;
+    left: -10%; /* Moved closer to overlap with book */
+    animation-delay: 0.6s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    /* Make it bigger */
+    padding: 1.25rem 1.75rem;
+    transform: scale(1.2);
+  }
+
+  .feature-3 {
+    top: 70%;
+    right: -20%;
+    animation-delay: 0.9s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .feature-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .feature-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .feature-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #cccccc;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* Make feature-2 text bigger since it's the bigger badge */
+  .feature-2 .feature-number {
+    font-size: 2rem;
+  }
+
+  .feature-2 .feature-text {
+    font-size: 1rem;
+  }
+
+  /* Animations */
+  @keyframes bookFloatIn {
+    0% {
+      opacity: 0;
+      transform: perspective(1000px) rotateY(-30deg) rotateX(10deg) translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: perspective(1000px) rotateY(-8deg) rotateX(2deg) translateY(0);
+    }
+  }
+
+  @keyframes featureFloatIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Scroll Down Chevron */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    animation: chevronBounce 2s infinite;
+  }
+
+  .scroll-chevron {
+    width: 48px; /* Bigger chevron */
+    height: 48px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+  }
+
+  .scroll-indicator:hover .scroll-chevron {
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+
+  /* Chevron bounce animation */
+  @keyframes chevronBounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-12px);
+    }
+    60% {
+      transform: translateY(-6px);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-container {
+      gap: 4rem;
+    }
+
+    .feature-highlight {
+      padding: 0.5rem 0.75rem;
+    }
+
+    .feature-number {
+      font-size: 1.25rem;
+    }
+
+    .feature-text {
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 1rem 0;
+    }
+
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 8vw, 4rem);
+    }
+
+    .hero-subtitle {
+      max-width: 100%;
+    }
+
+    .scroll-indicator {
+      bottom: 2rem;
+    }
+
+    .scroll-chevron {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Adjust feature positions for mobile */
+    .feature-1 {
+      top: 5%;
+      right: 5%;
+    }
+
+    .feature-2 {
+      bottom: 25%;
+      left: 5%;
+    }
+
+    .feature-3 {
+      top: 45%;
+      right: 10%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 0.5rem 0;
+    }
+
+    .hero-container {
+      padding: 0 1rem;
+    }
+
+    .btn-amazon {
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+    }
+
+    .feature-highlight {
+      padding: 0.4rem 0.6rem;
+    }
+
+    .feature-number {
+      font-size: 1rem;
+    }
+
+    .feature-text {
+      font-size: 0.7rem;
+    }
+  }
+
+  /* Blur-to-focus animations */
+  @keyframes titleBlurIn {
+    0% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes textBlurIn {
+    0% {
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+</style> 

@@ -1,22 +1,250 @@
-<!doctype html>
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="Master the Art of Snare Drumming with The Rudimental Blueprint" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		
+		<!-- Font imports -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+		
+		<!-- Global Tailwind CSS -->
+		<style>
+			@import '/src/styles/global.css';
+		</style>
 	</head>
-	<body>
-		<slot />
+	
+	<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white min-h-screen">
+		<Header />
+		
+		<main class="main-content">
+			<slot />
+		</main>
+
+		<Footer />
+
+		<!-- Background Elements -->
+		<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+			<!-- Subtle animated background -->
+			<div class="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+			<div class="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+		</div>
+
+		<style is:global>
+			/* CSS RESET - Eliminate all default spacing */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			html {
+				font-family: 'Inter', system-ui, sans-serif;
+				scroll-behavior: smooth;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				background: #000000;
+				color: #ffffff;
+				line-height: 1.6;
+				overflow-x: hidden;
+				margin: 0;
+				padding: 0;
+			}
+
+			/* Global Button Styles matching header button exactly */
+			.btn-primary {
+				position: relative;
+				background: transparent;
+				border: 2px solid rgba(255, 255, 255, 0.2);
+				color: #ffffff;
+				padding: 1rem 2rem;
+				border-radius: 10px;
+				font-weight: 600;
+				font-size: 1rem;
+				cursor: pointer;
+				overflow: hidden;
+				transition: all 0.3s ease;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.75rem;
+				outline: none;
+			}
+
+			.btn-primary span {
+				position: relative;
+				z-index: 2;
+				transition: color 0.3s ease;
+			}
+
+			.btn-primary .btn-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(135deg, #333333 0%, #222222 100%);
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: transform 0.4s ease;
+				z-index: 1;
+			}
+
+			.btn-primary svg {
+				position: relative;
+				z-index: 2;
+			}
+
+			.btn-primary:hover {
+				border-color: rgba(255, 255, 255, 0.4);
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+			}
+
+			.btn-primary:hover .btn-bg {
+				transform: scaleX(1);
+			}
+
+			.btn-primary:active {
+				transform: translateY(0);
+			}
+
+			.btn-primary:focus {
+				border-color: rgba(255, 255, 255, 0.3);
+				outline: none;
+			}
+
+			.btn-secondary {
+				position: relative;
+				background: transparent;
+				border: 2px solid rgba(255, 255, 255, 0.3);
+				color: #ffffff;
+				padding: 1rem 2rem;
+				border-radius: 10px;
+				font-weight: 600;
+				font-size: 1rem;
+				cursor: pointer;
+				overflow: hidden;
+				transition: all 0.3s ease;
+				text-decoration: none;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.75rem;
+				outline: none;
+			}
+
+			.btn-secondary span {
+				position: relative;
+				z-index: 2;
+				transition: color 0.3s ease;
+			}
+
+			.btn-secondary .btn-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(255, 255, 255, 0.1);
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: transform 0.4s ease;
+				z-index: 1;
+			}
+
+			.btn-secondary svg {
+				position: relative;
+				z-index: 2;
+			}
+
+			.btn-secondary:hover {
+				border-color: rgba(255, 255, 255, 0.5);
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+			}
+
+			.btn-secondary:hover .btn-bg {
+				transform: scaleX(1);
+			}
+
+			.btn-secondary:active {
+				transform: translateY(0);
+			}
+
+			.btn-secondary:focus {
+				border-color: rgba(255, 255, 255, 0.4);
+				outline: none;
+			}
+
+			/* Enhanced scrollbar styling */
+			::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			::-webkit-scrollbar-track {
+				background: #111111;
+			}
+
+			::-webkit-scrollbar-thumb {
+				background: linear-gradient(135deg, #333333, #222222);
+				border-radius: 4px;
+			}
+
+			::-webkit-scrollbar-thumb:hover {
+				background: linear-gradient(135deg, #444444, #333333);
+			}
+
+			/* Remove focus flash from all interactive elements */
+			button:focus,
+			a:focus,
+			input:focus {
+				outline: none;
+			}
+
+			/* Custom focus states that don't flash */
+			button:focus-visible,
+			a:focus-visible {
+				outline: 2px solid rgba(255, 255, 255, 0.3);
+				outline-offset: 2px;
+			}
+
+			/* Typography improvements */
+			h1, h2, h3, h4, h5, h6 {
+				line-height: 1.2;
+				font-weight: 600;
+			}
+
+			p {
+				line-height: 1.7;
+			}
+
+			/* Responsive text scaling */
+			@media (max-width: 768px) {
+				.btn-primary,
+				.btn-secondary {
+					padding: 0.875rem 1.5rem;
+					font-size: 0.95rem;
+				}
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

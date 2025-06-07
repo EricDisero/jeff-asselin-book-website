@@ -1,0 +1,138 @@
+---
+export interface Props {
+  video: {
+    id: string;
+    title: string;
+    youtubeId: string;
+    url: string;
+    category: string;
+    tags: string[];
+    tempo: number;
+    tempoCategory: string;
+    type: string;
+    difficulty: string;
+    rudiments: string[];
+    description: string;
+    pageNumber: number;
+  };
+}
+
+const { video } = Astro.props;
+
+const difficultyColors = {
+  beginner: 'bg-green-500',
+  intermediate: 'bg-yellow-500', 
+  advanced: 'bg-red-500'
+};
+
+const typeColors = {
+  counting: 'bg-purple-500',
+  performance: 'bg-blue-500',
+  duet: 'bg-pink-500',
+  breakdown: 'bg-gray-500'
+};
+---
+
+<div class="group bg-gray-900/60 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 overflow-hidden hover:transform hover:scale-[1.02]">
+  <!-- Video Thumbnail -->
+  <div class="relative aspect-video bg-gray-800">
+    <img 
+      src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+      alt={video.title}
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+    
+    <!-- Play Overlay -->
+    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+      <button 
+        class="video-play-btn bg-blue-600 hover:bg-blue-700 rounded-full p-4 transform scale-100 hover:scale-110 transition-transform"
+        data-youtube-id={video.youtubeId}
+        data-video-title={video.title}
+      >
+        <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Tempo Badge -->
+    <div class="absolute top-3 left-3">
+      <span class={`px-2 py-1 rounded-full text-xs font-semibold text-white ${video.tempoCategory === '40-50' ? 'bg-green-500' : video.tempoCategory === '60-70' ? 'bg-blue-500' : video.tempoCategory === '80-90' ? 'bg-yellow-500' : 'bg-red-500'}`}>
+        {video.tempo} BPM
+      </span>
+    </div>
+    
+    <!-- Page Number -->
+    <div class="absolute top-3 right-3">
+      <span class="bg-gray-800/80 px-2 py-1 rounded text-xs text-gray-300">
+        Page {video.pageNumber}
+      </span>
+    </div>
+  </div>
+  
+  <!-- Video Info -->
+  <div class="p-4 space-y-3">
+    <!-- Title -->
+    <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">
+      {video.title}
+    </h3>
+    
+    <!-- Description -->
+    <p class="text-sm text-gray-400 line-clamp-2">
+      {video.description}
+    </p>
+    
+    <!-- Tags Row 1: Difficulty & Type -->
+    <div class="flex flex-wrap gap-2">
+      <span class={`px-2 py-1 rounded-full text-xs font-medium text-white ${difficultyColors[video.difficulty]}`}>
+        {video.difficulty}
+      </span>
+      <span class={`px-2 py-1 rounded-full text-xs font-medium text-white ${typeColors[video.type]}`}>
+        {video.type}
+      </span>
+    </div>
+    
+    <!-- Tags Row 2: Rudiments -->
+    <div class="flex flex-wrap gap-1">
+      {video.rudiments.slice(0, 3).map(rudiment => (
+        <span class="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300 hover:bg-blue-600 hover:text-white transition-colors cursor-pointer">
+          {rudiment}
+        </span>
+      ))}
+      {video.rudiments.length > 3 && (
+        <span class="px-2 py-1 bg-gray-600 rounded text-xs text-gray-400">
+          +{video.rudiments.length - 3} more
+        </span>
+      )}
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="flex gap-2 pt-2">
+      <button 
+        class="video-play-btn flex-1 bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded font-medium text-sm transition-colors"
+        data-youtube-id={video.youtubeId}
+        data-video-title={video.title}
+      >
+        Watch Video
+      </button>
+      <a 
+        href={video.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded font-medium text-sm transition-colors"
+      >
+        YouTube
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style> 

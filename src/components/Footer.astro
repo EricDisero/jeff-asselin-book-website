@@ -1,0 +1,165 @@
+---
+// Modern footer component
+---
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">The Rudimental Blueprint</h3>
+        <p class="footer-description">
+          Master the art of snare drumming with Chuck Burrows' revolutionary method. 
+          47 progressive solos with 600+ instructional videos.
+        </p>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-heading">Quick Links</h4>
+        <div class="footer-links">
+          <a href="/" class="footer-link">Home</a>
+          <a href="/videos" class="footer-link">Video Library</a>
+          <a href="#" class="footer-link">Order Book</a>
+          <a href="#" class="footer-link">Join Community</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-heading">Authors</h4>
+        <div class="footer-authors">
+          <p><strong>Jeff Asselin</strong> - Author & Video Producer</p>
+          <p><strong>Chuck Burrows</strong> (1948-2019) - Method Creator</p>
+          <p><strong>Matt Savage</strong> - Co-Author</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 The Rudimental Blueprint. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #000000;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 5rem;
+  }
+
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem 1.5rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-description {
+    color: #999999;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 350px;
+  }
+
+  .footer-heading {
+    color: #cccccc;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-link {
+    color: #999999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    position: relative;
+    width: fit-content;
+  }
+
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #ffffff;
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+
+  .footer-authors {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-authors p {
+    color: #999999;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .footer-authors strong {
+    color: #cccccc;
+    font-weight: 600;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: #666666;
+    font-size: 0.85rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-container {
+      padding: 2rem 1rem 1rem;
+    }
+  }
+</style> 
