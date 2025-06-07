@@ -17,10 +17,7 @@ import { videos as namedPieces9Videos } from './videos/named-pieces-9.js';
 export const videoCategories = [
   { id: 'solos-1-5', name: 'Solos #1-#5', count: 0 },
   { id: 'solos-6-10', name: 'Solos #6-#10', count: 0 },
-  { id: 'named-pieces', name: 'Named Pieces', count: 0 },
-  { id: 'mixed-meter', name: 'Mixed Meter', count: 0 },
-  { id: 'duets', name: 'Duets', count: 0 },
-  { id: 'practice-tips', name: 'Practice Tips', count: 0 }
+  { id: 'named-pieces', name: 'Named Pieces', count: 0 }
 ];
 
 // Tempo categories for filtering
@@ -43,7 +40,8 @@ export const videoTypes = {
 // Meter types for filtering
 export const meterTypes = [
   { id: 'simple', name: 'Simple Metre' },
-  { id: 'compound', name: 'Compound Metre' }
+  { id: 'compound', name: 'Compound Metre' },
+  { id: 'waltz', name: 'Waltz (3/4)' }
 ];
 
 // Part types for filtering
