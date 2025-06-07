@@ -3,6 +3,7 @@
 
 import { videos as solos1to5Videos } from './videos/solos-1-5.js';
 import { videos as solos6to10Videos } from './videos/solos-6-10.js';
+import { videos as namedPiecesVideos } from './videos/named-pieces.js';
 
 // Categories for filtering
 export const videoCategories = [
@@ -110,7 +111,8 @@ function getVideoType(title) {
 // Combine all videos from modules
 export const videos = [
   ...solos1to5Videos,
-  ...solos6to10Videos
+  ...solos6to10Videos,
+  ...namedPiecesVideos
 ];
 
 // Update category counts based on current videos
@@ -123,7 +125,7 @@ tempoCategories.forEach(category => {
   category.count = videos.filter(video => video.tempoCategory === category.id).length;
 });
 
-console.log(`Loaded ${videos.length} videos from modular architecture: Solos #1-#5 and #6-#10`);
+console.log(`Loaded ${videos.length} videos from modular architecture: Solos #1-#5, #6-#10, and Named Pieces`);
 
 // Utility functions for filtering
 export const getVideosByCategory = (category) => {

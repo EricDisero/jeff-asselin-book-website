@@ -45,17 +45,26 @@ export function createTempoVariations(baseVideo, tempos) {
 
 // Helper function to validate video data structure
 export function validateVideo(video) {
-  const required = ['id', 'title', 'youtubeId', 'category', 'tempo', 'pageNumber'];
+  const required = ['id', 'title', 'youtubeId', 'category', 'pageNumber'];
   const missing = required.filter(field => !video[field]);
   
   if (missing.length > 0) {
     throw new Error(`Missing required fields: ${missing.join(', ')}`);
   }
   
-  // Validate tempo category matches tempo
-  const expectedCategory = categorizeTempoRange(video.tempo);
-  if (video.tempoCategory !== expectedCategory) {
-    console.warn(`Tempo category mismatch for ${video.id}: expected ${expectedCategory}, got ${video.tempoCategory}`);
+  // Tempo is required unless it's a demonstration video
+  if (video.tempo === null || video.tempo === undefined) {
+    if (video.type !== 'demonstration') {
+      throw new Error(`Missing required field: tempo (video: ${video.id})`);
+    }
+  }
+  
+  // Validate tempo category matches tempo (only for non-demonstration videos)
+  if (video.tempo !== null && video.tempo !== undefined) {
+    const expectedCategory = categorizeTempoRange(video.tempo);
+    if (video.tempoCategory !== expectedCategory && video.tempoCategory !== 'demonstration') {
+      console.warn(`Tempo category mismatch for ${video.id}: expected ${expectedCategory}, got ${video.tempoCategory}`);
+    }
   }
   
   return true;
