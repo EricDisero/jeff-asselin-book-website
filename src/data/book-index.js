@@ -31,7 +31,7 @@ export const bookSections = {
     'STAGGER': { part1: 39, part2: 41 },
     'TRIX': { part1: 42, part2: 43 },
     'TWIST': { part1: 44, part2: 45 },
-         'UP & RUNNIN': { page: 46 },
+    'UP & RUNNIN\'': { page: 46 },
     'SLASH & RUN': { page: 46 },
     'SUNDAY STRUT': { page: 47 },
     'A MINOR DOWNFALL': { page: 47 },
@@ -58,10 +58,10 @@ export const bookSections = {
     'ANGEL': { page: 72 },
     'RAMBLE': { part1: 74, part2: 75 },
     '12 TO GO': { part1: 74, part2: 75 },
-         'RATAS & ROLL': { part1: 76, part2: 77 },
+    'RATA\'S & ROLL': { part1: 76, part2: 77 },
     'TETRALOGY': { part1: 78, part2: 79, part3: 80, part4: 81 },
     'SHAKE WELL': { page: 82 },
-         'MOVIN OUT': { part1: 84, part2: 85 },
+    'MOVIN\' OUT': { part1: 84, part2: 85 },
     'GARY GARY': { part1: 86, part2: 87 },
     'TWO DAY': { page: 88 },
     'OKAY': { page: 89 },
@@ -222,11 +222,11 @@ export const taggingStandards = {
   },
   pieceName: {
     format: 'exact book title',
-    example: 'solo #1', 'SIMP', 'UP & RUNNIN\'',
+    examples: ['solo #1', 'SIMP', 'UP & RUNNIN\''],
     description: 'Use exact piece name as written in book'
   },
   partDesignation: {
-    format: 'part 1', 'part 2', etc.,
+    format: 'part 1, part 2, etc.',
     description: 'Specify which part when applicable'
   },
   skillLevel: {
