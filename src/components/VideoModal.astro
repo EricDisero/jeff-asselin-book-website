@@ -24,7 +24,7 @@
         height="100%"
         src=""
         title="YouTube video player"
-        frameborder="0"
+        style="border: none;"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
         class="w-full h-full"
@@ -56,36 +56,41 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('video-modal');
-    const modalTitle = document.getElementById('modal-video-title');
-    const youtubePlayer = document.getElementById('youtube-player');
-    const modalYoutubeLink = document.getElementById('modal-youtube-link');
-    const closeModalBtn = document.getElementById('close-modal');
+    const modal = document.getElementById('video-modal') as HTMLElement;
+    const modalTitle = document.getElementById('modal-video-title') as HTMLElement;
+    const youtubePlayer = document.getElementById('youtube-player') as HTMLIFrameElement;
+    const modalYoutubeLink = document.getElementById('modal-youtube-link') as HTMLAnchorElement;
+    const closeModalBtn = document.getElementById('close-modal') as HTMLElement;
     
     // Open modal function
-    function openVideoModal(youtubeId, title) {
-      modalTitle.textContent = title;
-      youtubePlayer.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
-      modalYoutubeLink.href = `https://www.youtube.com/watch?v=${youtubeId}`;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+    function openVideoModal(youtubeId: string, title: string) {
+      if (modalTitle) modalTitle.textContent = title;
+      if (youtubePlayer) youtubePlayer.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+      if (modalYoutubeLink) modalYoutubeLink.href = `https://www.youtube.com/watch?v=${youtubeId}`;
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
       document.body.style.overflow = 'hidden';
     }
     
     // Close modal function
     function closeVideoModal() {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      youtubePlayer.src = '';
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      if (youtubePlayer) youtubePlayer.src = '';
       document.body.style.overflow = 'auto';
     }
     
     // Event listeners for play buttons
     document.addEventListener('click', function(e) {
-      if (e.target.classList.contains('video-play-btn') || e.target.closest('.video-play-btn')) {
-        const btn = e.target.classList.contains('video-play-btn') ? e.target : e.target.closest('.video-play-btn');
-        const youtubeId = btn.dataset.youtubeId;
-        const title = btn.dataset.videoTitle;
+      const target = e.target as HTMLElement;
+      if (target?.classList?.contains('video-play-btn') || target?.closest('.video-play-btn')) {
+        const btn = target.classList.contains('video-play-btn') ? target : target.closest('.video-play-btn') as HTMLElement;
+        const youtubeId = btn?.dataset?.youtubeId;
+        const title = btn?.dataset?.videoTitle;
         
         if (youtubeId && title) {
           openVideoModal(youtubeId, title);
@@ -94,17 +99,17 @@
     });
     
     // Close modal events
-    closeModalBtn.addEventListener('click', closeVideoModal);
+    closeModalBtn?.addEventListener('click', closeVideoModal);
     
     // Close on escape key
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
         closeVideoModal();
       }
     });
     
     // Close on backdrop click
-    modal.addEventListener('click', function(e) {
+    modal?.addEventListener('click', function(e) {
       if (e.target === modal) {
         closeVideoModal();
       }

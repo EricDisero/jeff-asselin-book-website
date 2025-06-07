@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data/videos.js';
+import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from '../data/videos.js';
 ---
 
 <Layout title="Video Library - The Rudimental Blueprint">
@@ -12,42 +12,83 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
       <h1 class="videos-title">Video Library</h1>
       <p class="videos-subtitle">600+ instructional videos to master Chuck Burrows' method</p>
       
-      <!-- Tag-based filtering system -->
+      <!-- Comprehensive tag-based filtering system -->
       <div class="filter-section">
+        <!-- Book Section -->
         <div class="filter-group">
-          <label class="filter-label">Category</label>
+          <label class="filter-label">Book Section</label>
           <div class="filter-tags" id="categoryFilters">
             <button class="filter-tag active" data-filter="all" data-type="category">All Videos</button>
-            {Object.entries(videoCategories).map(([key, category]) => (
-              <button class="filter-tag" data-filter={key} data-type="category">{category.name}</button>
+            {videoCategories.map(category => (
+              <button class="filter-tag" data-filter={category.id} data-type="category">{category.name}</button>
             ))}
           </div>
         </div>
 
+        <!-- Meter & Part Type -->
         <div class="filter-group">
-          <label class="filter-label">Difficulty</label>
-          <div class="filter-tags" id="difficultyFilters">
-            <button class="filter-tag" data-filter="beginner" data-type="difficulty">Beginner</button>
-            <button class="filter-tag" data-filter="intermediate" data-type="difficulty">Intermediate</button>
-            <button class="filter-tag" data-filter="advanced" data-type="difficulty">Advanced</button>
+          <label class="filter-label">Meter</label>
+          <div class="filter-tags" id="meterFilters">
+            {meterTypes.map(meter => (
+              <button class="filter-tag" data-filter={meter.id} data-type="meter">{meter.name}</button>
+            ))}
           </div>
         </div>
         
         <div class="filter-group">
-          <label class="filter-label">Tempo</label>
-          <div class="filter-tags" id="tempoFilters">
-            {tempoCategories.map(tempo => (
-              <button class="filter-tag" data-filter={tempo.range} data-type="tempo">{tempo.label}</button>
+          <label class="filter-label">Part Type</label>
+          <div class="filter-tags" id="partFilters">
+            {partTypes.map(part => (
+              <button class="filter-tag" data-filter={part.id} data-type="partType">{part.name}</button>
             ))}
           </div>
         </div>
 
+        <!-- Video Type & Tempo -->
         <div class="filter-group">
-          <label class="filter-label">Rudiment Type</label>
-          <div class="filter-tags" id="rudimentFilters">
-            {rudimentTypes.slice(0, 6).map(rudiment => (
-              <button class="filter-tag" data-filter={rudiment} data-type="rudiment">{rudiment}</button>
+          <label class="filter-label">Video Type</label>
+          <div class="filter-tags" id="typeFilters">
+            <button class="filter-tag" data-filter="counting" data-type="type">With Counting</button>
+            <button class="filter-tag" data-filter="performance" data-type="type">Performance Tempo</button>
+            <button class="filter-tag" data-filter="duet" data-type="type">Duet</button>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <label class="filter-label">Tempo Range</label>
+          <div class="filter-tags" id="tempoFilters">
+            {tempoCategories.map(tempo => (
+              <button class="filter-tag" data-filter={tempo.id} data-type="tempo">{tempo.name}</button>
             ))}
+          </div>
+        </div>
+
+        <!-- Rudiment Families -->
+        <div class="filter-group">
+          <label class="filter-label">Rudiment Family</label>
+          <div class="filter-tags" id="rudimentFamilyFilters">
+            <button class="filter-tag" data-filter="rolls" data-type="rudimentFamily">Rolls</button>
+            <button class="filter-tag" data-filter="paradiddles" data-type="rudimentFamily">Paradiddles</button>
+            <button class="filter-tag" data-filter="flams" data-type="rudimentFamily">Flams</button>
+            <button class="filter-tag" data-filter="drags" data-type="rudimentFamily">Drags</button>
+            <button class="filter-tag" data-filter="ratamacues" data-type="rudimentFamily">Ratamacues</button>
+            <button class="filter-tag" data-filter="strokes" data-type="rudimentFamily">Strokes</button>
+            <button class="filter-tag" data-filter="advanced" data-type="rudimentFamily">Advanced</button>
+          </div>
+        </div>
+
+        <!-- Specific Rudiments (Top 12 most common) -->
+        <div class="filter-group">
+          <label class="filter-label">Specific Rudiment</label>
+          <div class="filter-tags" id="rudimentFilters">
+            <button class="filter-tag" data-filter="5 Stroke Roll" data-type="rudiment">5 Stroke Roll</button>
+            <button class="filter-tag" data-filter="9 Stroke Roll" data-type="rudiment">9 Stroke Roll</button>
+            <button class="filter-tag" data-filter="Paradiddle" data-type="rudiment">Paradiddle</button>
+            <button class="filter-tag" data-filter="Double Paradiddle" data-type="rudiment">Double Paradiddle</button>
+            <button class="filter-tag" data-filter="Flam" data-type="rudiment">Flam</button>
+            <button class="filter-tag" data-filter="Flam Paradiddle" data-type="rudiment">Flam Paradiddle</button>
+            <button class="filter-tag" data-filter="Drag" data-type="rudiment">Drag</button>
+            <button class="filter-tag" data-filter="Swiss Army Triplet" data-type="rudiment">Swiss Army Triplet</button>
           </div>
         </div>
 
@@ -62,7 +103,7 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
         <input 
           type="text" 
           id="search" 
-          placeholder="Search videos..." 
+          placeholder="Search videos by name, page number (e.g., 'p38'), or piece title..." 
           class="search-input"
         />
       </div>
@@ -72,9 +113,12 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
         {videos.map(video => (
           <div class="video-card" 
                data-category={video.category}
-               data-difficulty={video.difficulty}
+               data-type={video.type}
                data-tempo={video.tempoCategory}
+               data-meter={video.meter}
+               data-part-type={video.partType}
                data-rudiments={video.rudiments.join(',')}
+               data-rudiment-families={video.rudimentFamilies.join(',')}
                data-tags={video.tags.join(',')}>
             <div class="video-thumbnail">
               <img 
@@ -97,7 +141,9 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
               <div class="video-meta">
                 <span class="tempo">{video.tempo} BPM</span>
                 <span class="page">Page {video.pageNumber}</span>
-                <span class="difficulty difficulty-{video.difficulty}">{video.difficulty}</span>
+                <span class="video-type">{video.type === 'counting' ? 'With Counting' : video.type === 'duet' ? 'Duet' : 'Performance'}</span>
+                {video.meter && <span class="meter">{video.meter}</span>}
+                {video.partType && <span class="part-type">{video.partType}</span>}
               </div>
               <div class="video-rudiments">
                 {video.rudiments.slice(0, 3).map(rudiment => (
@@ -129,7 +175,7 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
           width="100%" 
           height="100%" 
           src="" 
-          frameborder="0" 
+          style="border: none;"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
         </iframe>
@@ -139,28 +185,28 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const searchInput = document.getElementById('search');
-      const videoCards = document.querySelectorAll('.video-card');
-      const modal = document.getElementById('videoModal');
-      const modalBackdrop = document.getElementById('modalBackdrop');
-      const modalClose = document.getElementById('modalClose');
-      const modalTitle = document.getElementById('modalTitle');
-      const videoFrame = document.getElementById('videoFrame');
-      const clearFiltersBtn = document.getElementById('clearFilters');
-      const activeFiltersDiv = document.getElementById('activeFilters');
+      const searchInput = document.getElementById('search') as HTMLInputElement;
+      const videoCards = document.querySelectorAll('.video-card') as NodeListOf<HTMLElement>;
+      const modal = document.getElementById('videoModal') as HTMLElement;
+      const modalBackdrop = document.getElementById('modalBackdrop') as HTMLElement;
+      const modalClose = document.getElementById('modalClose') as HTMLElement;
+      const modalTitle = document.getElementById('modalTitle') as HTMLElement;
+      const videoFrame = document.getElementById('videoFrame') as HTMLIFrameElement;
+      const clearFiltersBtn = document.getElementById('clearFilters') as HTMLElement;
+      const activeFiltersDiv = document.getElementById('activeFilters') as HTMLElement;
       
-      let activeFilters = {};
+      let activeFilters: Record<string, string> = {};
       
       // Search functionality
-      searchInput.addEventListener('input', function() {
+      searchInput?.addEventListener('input', function() {
         filterVideos();
       });
       
       // Filter functionality
       document.querySelectorAll('.filter-tag').forEach(tag => {
-        tag.addEventListener('click', function() {
-          const filterType = this.dataset.type;
-          const filterValue = this.dataset.filter;
+        tag.addEventListener('click', function(this: HTMLElement) {
+          const filterType = this.dataset.type!;
+          const filterValue = this.dataset.filter!;
           
           if (filterValue === 'all') {
             // Clear category filters
@@ -189,37 +235,39 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
       });
       
       // Clear all filters
-      clearFiltersBtn.addEventListener('click', function() {
+      clearFiltersBtn?.addEventListener('click', function() {
         activeFilters = {};
         document.querySelectorAll('.filter-tag').forEach(tag => {
           tag.classList.remove('active');
         });
-        document.querySelector('[data-filter="all"]').classList.add('active');
+        document.querySelector('[data-filter="all"]')?.classList.add('active');
         updateActiveFiltersDisplay();
         filterVideos();
       });
       
       function updateActiveFiltersDisplay() {
         const filterCount = Object.keys(activeFilters).length;
-        if (filterCount > 0) {
+        if (filterCount > 0 && activeFiltersDiv) {
           activeFiltersDiv.innerHTML = `${filterCount} filter${filterCount > 1 ? 's' : ''} active`;
           activeFiltersDiv.style.display = 'block';
-        } else {
+        } else if (activeFiltersDiv) {
           activeFiltersDiv.style.display = 'none';
         }
       }
       
       function filterVideos() {
-        const searchTerm = searchInput.value.toLowerCase();
+        const searchTerm = searchInput?.value.toLowerCase() || '';
         
         videoCards.forEach(card => {
           let showCard = true;
           
           // Apply search filter
           if (searchTerm) {
-            const title = card.querySelector('.video-title').textContent.toLowerCase();
-            const description = card.querySelector('.video-description').textContent.toLowerCase();
-            const tags = card.dataset.tags.toLowerCase();
+            const titleEl = card.querySelector('.video-title');
+            const descEl = card.querySelector('.video-description');
+            const title = titleEl?.textContent?.toLowerCase() || '';
+            const description = descEl?.textContent?.toLowerCase() || '';
+            const tags = card.dataset.tags?.toLowerCase() || '';
             
             if (!title.includes(searchTerm) && !description.includes(searchTerm) && !tags.includes(searchTerm)) {
               showCard = false;
@@ -231,8 +279,8 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
             showCard = false;
           }
           
-          // Apply difficulty filter
-          if (activeFilters.difficulty && card.dataset.difficulty !== activeFilters.difficulty) {
+          // Apply type filter
+          if (activeFilters.type && card.dataset.type !== activeFilters.type) {
             showCard = false;
           }
           
@@ -241,45 +289,62 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
             showCard = false;
           }
           
-          // Apply rudiment filter
-          if (activeFilters.rudiment && !card.dataset.rudiments.includes(activeFilters.rudiment)) {
+          // Apply meter filter
+          if (activeFilters.meter && card.dataset.meter !== activeFilters.meter) {
             showCard = false;
           }
           
-          card.style.display = showCard ? 'block' : 'none';
+          // Apply part type filter
+          if (activeFilters.partType && card.dataset.partType !== activeFilters.partType) {
+            showCard = false;
+          }
+          
+          // Apply rudiment filter
+          if (activeFilters.rudiment && !card.dataset.rudiments?.includes(activeFilters.rudiment)) {
+            showCard = false;
+          }
+          
+          // Apply rudiment family filter
+          if (activeFilters.rudimentFamily && !card.dataset.rudimentFamilies?.includes(activeFilters.rudimentFamily)) {
+            showCard = false;
+          }
+          
+          (card as HTMLElement).style.display = showCard ? 'block' : 'none';
         });
       }
       
       // Modal functionality
-      function openModal(youtubeId, title) {
-        modalTitle.textContent = title;
-        videoFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
-        modal.classList.add('active');
+      function openModal(youtubeId: string, title: string) {
+        if (modalTitle) modalTitle.textContent = title;
+        if (videoFrame) videoFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+        if (modal) modal.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
       
       function closeModal() {
-        modal.classList.remove('active');
-        videoFrame.src = '';
+        if (modal) modal.classList.remove('active');
+        if (videoFrame) videoFrame.src = '';
         document.body.style.overflow = '';
       }
       
       // Play button functionality
       document.querySelectorAll('.play-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function(this: HTMLElement) {
           const youtubeId = this.dataset.youtubeId;
           const title = this.dataset.videoTitle;
-          openModal(youtubeId, title);
+          if (youtubeId && title) {
+            openModal(youtubeId, title);
+          }
         });
       });
       
       // Close modal events
-      modalClose.addEventListener('click', closeModal);
-      modalBackdrop.addEventListener('click', closeModal);
+      modalClose?.addEventListener('click', closeModal);
+      modalBackdrop?.addEventListener('click', closeModal);
       
       // Escape key to close modal
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (e.key === 'Escape' && modal?.classList.contains('active')) {
           closeModal();
         }
       });
@@ -541,26 +606,31 @@ import { videos, videoCategories, tempoCategories, rudimentTypes } from '../data
     color: #ccc;
   }
 
-  .difficulty {
+  .video-type {
     padding: 0.25rem 0.5rem;
     border-radius: 10px;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
   }
 
-  .difficulty-beginner {
+  .meter {
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    background: rgba(168, 85, 247, 0.2);
+    color: #a78bfa;
+    font-size: 0.7rem;
+  }
+
+  .part-type {
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 500;
     background: rgba(34, 197, 94, 0.2);
     color: #4ade80;
-  }
-
-  .difficulty-intermediate {
-    background: rgba(249, 115, 22, 0.2);
-    color: #fb923c;
-  }
-
-  .difficulty-advanced {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
+    font-size: 0.7rem;
   }
 
   .video-rudiments {
