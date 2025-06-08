@@ -47,6 +47,7 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
       <!-- Title Section -->
       <div class="folder-header">
         <h3 class="folder-title">{songName}</h3>
+        <div class="folder-subtitle">Click to explore {videoCount} practice videos</div>
         <div class="folder-stats">
           <span class="video-count">{videoCount} videos</span>
           <span class="tempo-range">{tempoRange}</span>
@@ -127,8 +128,8 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
   
   .folder-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.08);
-    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(135deg, #1a1a2a 0%, #0a0a0a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
@@ -137,10 +138,31 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
     min-height: 200px;
   }
   
+  .folder-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+  
   .folder-card:hover {
     transform: translateY(-8px) scale(1.02);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #2a2a3a 0%, #151515 100%);
+  }
+  
+  .folder-card:hover::after {
+    left: 100%;
+  }
+  
+  .folder-card:active,
+  .folder-card[data-expanded="true"] {
+    border-color: #0d2644;
   }
   
   .folder-card[data-expanded="true"] {
@@ -161,35 +183,15 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
     transition: transform 0.6s ease;
   }
   
-  /* Default pattern - Simple Meter */
-  .folder-card .background-pattern {
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.2) 0%, transparent 40%),
-      linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  }
-  
-  /* Compound Meter - More complex pattern */
-  .folder-card[data-meter="compound"] .background-pattern {
-    background: 
-      conic-gradient(from 0deg at 30% 70%, rgba(168, 85, 247, 0.4) 0deg, transparent 60deg),
-      conic-gradient(from 120deg at 70% 30%, rgba(236, 72, 153, 0.3) 0deg, transparent 60deg),
-      radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 60%),
-      linear-gradient(45deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
-  }
-  
-  /* Waltz - Elegant flowing pattern */
+  /* Clean dark blue to black gradient for all patterns */
+  .folder-card .background-pattern,
+  .folder-card[data-meter="compound"] .background-pattern,
   .folder-card[data-meter="waltz"] .background-pattern {
-    background: 
-      radial-gradient(ellipse at 25% 25%, rgba(236, 72, 153, 0.4) 0%, transparent 50%),
-      radial-gradient(ellipse at 75% 75%, rgba(219, 39, 119, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 50% 80%, rgba(244, 114, 182, 0.2) 0%, transparent 40%),
-      linear-gradient(135deg, #4c0519 0%, #831843 50%, #be185d 100%);
+    background: linear-gradient(135deg, #0a0a1a 0%, #000000 100%);
   }
   
   .folder-card:hover .background-pattern {
-    transform: scale(1.05) rotate(2deg);
+    background: linear-gradient(135deg, #0f0f2a 0%, #000000 100%);
   }
   
   .background-overlay {
@@ -227,6 +229,21 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
     margin-bottom: 1rem;
   }
   
+  .folder-subtitle {
+    font-size: 1rem;
+    color: #888888;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .folder-card:hover .folder-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+    color: #e0e0e0;
+  }
+  
   .folder-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -238,7 +255,7 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
   }
   
   .folder-card:hover .folder-title {
-    color: #60a5fa;
+    color: #f0f0f0;
     transform: translateX(8px);
   }
   
@@ -522,35 +539,4 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
   }
 </style>
 
-<script>
-  // Add click handler for expand/collapse functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const folderCards = document.querySelectorAll('.folder-card');
-    
-    folderCards.forEach(card => {
-      card.addEventListener('click', function(this: HTMLElement) {
-        const songFolder = this.closest('.song-folder') as HTMLElement;
-        const videosContainer = songFolder?.querySelector('.videos-container') as HTMLElement;
-        const expandIcon = this.querySelector('.expand-icon') as SVGElement;
-        const expandText = this.querySelector('.expand-text') as HTMLElement;
-        
-        const isExpanded = this.dataset.expanded === 'true';
-        const newExpanded = !isExpanded;
-        
-        // Update attributes
-        this.dataset.expanded = String(newExpanded);
-        if (videosContainer) videosContainer.dataset.expanded = String(newExpanded);
-        
-        // Update button text
-        if (expandText) expandText.textContent = newExpanded ? 'Collapse' : 'Show Videos';
-        
-        // Optional: Scroll to folder if expanding
-        if (newExpanded) {
-          setTimeout(() => {
-            this.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 100);
-        }
-      });
-    });
-  });
-</script> 
+ 

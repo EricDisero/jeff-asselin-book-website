@@ -3,19 +3,22 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import SongFolder from '../components/SongFolder.astro';
 import { videos } from '../data/videos.js';
-import { groupVideosBySong, getSortedVideoFolders } from '../utils/videoGrouping.js';
 
-// Group all videos and find SPIRAL for testing
-const videoGroups = groupVideosBySong(videos);
-console.log('All video groups:', Object.keys(videoGroups));
+// Filter for Solo #1 videos specifically (not #10)
+const solo1Videos = videos.filter(video => {
+  const title = video.title?.toLowerCase() || '';
+  const tags = video.tags?.map(tag => tag.toLowerCase()) || [];
+  const id = video.id || '';
+  
+  // Check for exact "solo #1" matches, but exclude "solo #10"
+  const titleMatch = title.includes('solo #1') && !title.includes('solo #10');
+  const tagMatch = tags.some(tag => tag.includes('solo #1') && !tag.includes('solo #10'));
+  const idMatch = id.includes('solo1') && !id.includes('solo10');
+  
+  return titleMatch || tagMatch || idMatch;
+});
 
-// Look for spiral videos with different possible names
-const spiralVideos = (videoGroups as any)['Spiral'] || 
-                   (videoGroups as any)['spiral'] || 
-                   (videoGroups as any)['SPIRAL'] || [];
-
-console.log('Found SPIRAL videos:', spiralVideos.length);
-console.log('Video groups keys:', Object.keys(videoGroups));
+console.log('Found Solo #1 videos:', solo1Videos.length);
 ---
 
 <Layout title="Video Folders Test - The Rudimental Blueprint">
@@ -23,54 +26,45 @@ console.log('Video groups keys:', Object.keys(videoGroups));
   
   <section class="videos">
     <div class="videos-container">
-      <h1 class="videos-title">Video Folders Test</h1>
-      <p class="videos-subtitle">Testing the new folder system with SPIRAL</p>
+      <h1 class="videos-title">Solo #1 Collection</h1>
+      <p class="videos-subtitle">Testing the folder system with Solo #1 videos</p>
       
       <!-- Search bar -->
       <div class="search-box">
         <input 
           type="text" 
           id="search" 
-          placeholder="Search videos..." 
+          placeholder="Search Solo #1 videos..." 
           class="search-input"
         />
       </div>
       
-             <!-- Basic Video Count Test -->
-       <div class="test-info">
-         <h3>Debug Information:</h3>
-         <p>Total videos loaded: {videos.length}</p>
-         <p>Video groups found: {Object.keys(videoGroups).length}</p>
-         <p>Group names: {Object.keys(videoGroups).join(', ')}</p>
-         <p>SPIRAL videos found: {spiralVideos.length}</p>
-         {spiralVideos.length > 0 && (
-           <div>
-             <p>SPIRAL video titles:</p>
-             <ul>
-               {spiralVideos.map((video: any) => (
-                 <li>{video.title} - {video.tempo} BPM</li>
-               ))}
-             </ul>
-           </div>
-         )}
-       </div>
+      <!-- Debug Information -->
+      <div class="test-info">
+        <h3>Solo #1 Stats:</h3>
+        <p>Videos found: <strong>{solo1Videos.length}</strong></p>
+        <p>Tempo range: <strong>{Math.min(...solo1Videos.map(v => v.tempo))} - {Math.max(...solo1Videos.map(v => v.tempo))} BPM</strong></p>
+        <p>Pages: <strong>{[...new Set(solo1Videos.map(v => v.pageNumber))].sort().join(', ')}</strong></p>
+      </div>
 
-       <!-- SPIRAL Folder Test -->
-       {spiralVideos.length > 0 ? (
-         <SongFolder 
-           songName="Spiral" 
-           videos={spiralVideos}
-           isExpanded={false}
-         />
-       ) : (
-         <div class="no-videos">
-           <p>No SPIRAL videos found. Check the debug info above.</p>
-         </div>
-       )}
+      <!-- Solo #1 Folder -->
+      {solo1Videos.length > 0 ? (
+        <div class="folder-showcase">
+          <SongFolder 
+            songName="Solo #1" 
+            videos={solo1Videos}
+            isExpanded={false}
+          />
+        </div>
+      ) : (
+        <div class="no-videos">
+          <p>No Solo #1 videos found.</p>
+        </div>
+      )}
     </div>
   </section>
 
-  <!-- Video Modal (same as main page) -->
+  <!-- Video Modal -->
   <div id="videoModal" class="video-modal">
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-content">
@@ -97,23 +91,90 @@ console.log('Video groups keys:', Object.keys(videoGroups));
   </div>
 
   <script>
+    // Handle thumbnail fallbacks
+    function handleThumbnailError(img: any) {
+      const youtubeId = img.src.split('/')[4];
+      const fallbacks = ['hqdefault.jpg', 'sddefault.jpg', 'mqdefault.jpg', 'default.jpg', '0.jpg'];
+      
+      let currentIndex = parseInt(img.dataset.fallbackIndex || '0');
+      
+      if (currentIndex < fallbacks.length) {
+        img.dataset.fallbackIndex = (currentIndex + 1).toString();
+        img.src = `https://img.youtube.com/vi/${youtubeId}/${fallbacks[currentIndex]}`;
+      } else {
+        img.style.display = 'none';
+        img.parentElement.innerHTML = '<div class="thumbnail-placeholder">No thumbnail available</div>';
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       const modal = document.getElementById('videoModal') as HTMLElement;
       const modalBackdrop = document.getElementById('modalBackdrop') as HTMLElement;
       const modalClose = document.getElementById('modalClose') as HTMLElement;
       const modalTitle = document.getElementById('modalTitle') as HTMLElement;
       const videoFrame = document.getElementById('videoFrame') as HTMLIFrameElement;
+      const searchInput = document.getElementById('search') as HTMLInputElement;
       
-      // Video play functionality
+      // Search functionality
+      searchInput?.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const videoCards = document.querySelectorAll('.video-card');
+        
+        videoCards.forEach(card => {
+          const title = card.querySelector('.video-title')?.textContent?.toLowerCase() || '';
+          const description = card.querySelector('.video-description')?.textContent?.toLowerCase() || '';
+          const shouldShow = title.includes(searchTerm) || description.includes(searchTerm);
+          (card as HTMLElement).style.display = shouldShow ? 'block' : 'none';
+        });
+      });
+      
+      // Folder expand/collapse functionality
+      function toggleFolder(folderCard: Element) {
+        const videosContainer = folderCard.parentElement?.querySelector('.videos-container');
+        
+        if (videosContainer) {
+          const isExpanded = folderCard.getAttribute('data-expanded') === 'true';
+          const newState = !isExpanded;
+          
+          folderCard.setAttribute('data-expanded', newState.toString());
+          videosContainer.setAttribute('data-expanded', newState.toString());
+          
+          const expandBtn = folderCard.querySelector('.expand-btn');
+          const expandText = expandBtn?.querySelector('.expand-text');
+          if (expandText) {
+            expandText.textContent = newState ? 'Collapse' : 'Show Videos';
+          }
+        }
+      }
+      
       document.addEventListener('click', function(e) {
         const target = e.target as HTMLElement;
-        const playBtn = target.closest('.play-btn') as HTMLElement;
         
+        // Handle expand button click
+        const expandBtn = target.closest('.expand-btn');
+        if (expandBtn) {
+          e.stopPropagation();
+          const folderCard = expandBtn.closest('.folder-card');
+          if (folderCard) {
+            toggleFolder(folderCard);
+          }
+          return;
+        }
+        
+        // Handle folder card click (but not if clicking on videos inside)
+        const folderCard = target.closest('.folder-card');
+        if (folderCard && !target.closest('.videos-container') && !target.closest('.expand-btn')) {
+          toggleFolder(folderCard);
+          return;
+        }
+        
+        // Handle video play
+        const playBtn = target.closest('.play-btn');
         if (playBtn) {
-          const youtubeId = playBtn.dataset.youtubeId;
-          const videoTitle = playBtn.dataset.videoTitle;
+          const youtubeId = (playBtn as HTMLElement).dataset.youtubeId;
+          const videoTitle = (playBtn as HTMLElement).dataset.videoTitle;
           
-          if (youtubeId && videoTitle) {
+          if (youtubeId && videoTitle && modal && modalTitle && videoFrame) {
             modalTitle.textContent = videoTitle;
             videoFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
             modal.style.display = 'flex';
@@ -122,17 +183,18 @@ console.log('Video groups keys:', Object.keys(videoGroups));
         }
       });
       
-      // Close modal
+      // Close modal functionality
       function closeModal() {
-        modal.style.display = 'none';
-        videoFrame.src = '';
-        document.body.style.overflow = 'auto';
+        if (modal && videoFrame) {
+          modal.style.display = 'none';
+          videoFrame.src = '';
+          document.body.style.overflow = 'auto';
+        }
       }
       
       modalClose?.addEventListener('click', closeModal);
       modalBackdrop?.addEventListener('click', closeModal);
       
-      // Close on Escape key
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
           closeModal();
@@ -146,6 +208,7 @@ console.log('Video groups keys:', Object.keys(videoGroups));
   .videos {
     padding: 8rem 0 2rem;
     min-height: 100vh;
+    background: #000000;
   }
 
   .videos-container {
@@ -201,7 +264,7 @@ console.log('Video groups keys:', Object.keys(videoGroups));
   }
 
   .test-info {
-    margin-top: 3rem;
+    margin: 3rem 0;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -214,12 +277,12 @@ console.log('Video groups keys:', Object.keys(videoGroups));
     margin-bottom: 1rem;
   }
 
-  .test-info ul {
-    margin-left: 1rem;
+  .test-info strong {
+    color: #60a5fa;
   }
 
-  .test-info li {
-    margin-bottom: 0.5rem;
+  .folder-showcase {
+    margin-top: 3rem;
   }
 
   .no-videos {
@@ -230,6 +293,16 @@ console.log('Video groups keys:', Object.keys(videoGroups));
     color: #ff6b6b;
     text-align: center;
     margin-top: 2rem;
+  }
+
+  .thumbnail-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #999;
+    font-size: 0.9rem;
   }
 
   /* Modal styles */
