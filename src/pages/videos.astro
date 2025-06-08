@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from '../data/videos.js';
+import { videos, videoCategories, tempoCategories, partTypes, videoTypes, rudimentFamilies, rudimentTypes } from '../data/videos.js';
+import { tagCollections } from '../data/tag-system.js';
 ---
 
 <Layout title="Video Library - The Rudimental Blueprint">
@@ -18,22 +19,13 @@ import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from 
         <div class="filter-group">
           <label class="filter-label">Book Section</label>
           <div class="filter-tags" id="categoryFilters">
-            <button class="filter-tag active" data-filter="all" data-type="category">All Videos</button>
-            {videoCategories.map(category => (
-              <button class="filter-tag" data-filter={category.id} data-type="category">{category.name}</button>
+            {videoCategories.map((category: any, index: number) => (
+              <button class={`filter-tag ${category.id === 'all-videos' ? 'active' : ''}`} data-filter={category.id} data-type="category">{category.name}</button>
             ))}
           </div>
         </div>
 
-        <!-- Meter & Part Type -->
-        <div class="filter-group">
-          <label class="filter-label">Meter</label>
-          <div class="filter-tags" id="meterFilters">
-            {meterTypes.map(meter => (
-              <button class="filter-tag" data-filter={meter.id} data-type="meter">{meter.name}</button>
-            ))}
-          </div>
-        </div>
+        <!-- Meter removed - these were just exercises at the beginning of the book -->
         
         <div class="filter-group">
           <label class="filter-label">Part Type</label>
@@ -48,9 +40,9 @@ import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from 
         <div class="filter-group">
           <label class="filter-label">Video Type</label>
           <div class="filter-tags" id="typeFilters">
-            <button class="filter-tag" data-filter="counting" data-type="type">With Counting</button>
-            <button class="filter-tag" data-filter="performance" data-type="type">Performance Tempo</button>
-            <button class="filter-tag" data-filter="duet" data-type="type">Duet</button>
+            {Object.values(tagCollections.videoTypes).map((videoType: any) => (
+              <button class="filter-tag" data-filter={videoType.id} data-type="type">{videoType.uiLabel}</button>
+            ))}
           </div>
         </div>
         
@@ -67,28 +59,19 @@ import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from 
         <div class="filter-group">
           <label class="filter-label">Rudiment Family</label>
           <div class="filter-tags" id="rudimentFamilyFilters">
-            <button class="filter-tag" data-filter="rolls" data-type="rudimentFamily">Rolls</button>
-            <button class="filter-tag" data-filter="paradiddles" data-type="rudimentFamily">Paradiddles</button>
-            <button class="filter-tag" data-filter="flams" data-type="rudimentFamily">Flams</button>
-            <button class="filter-tag" data-filter="drags" data-type="rudimentFamily">Drags</button>
-            <button class="filter-tag" data-filter="ratamacues" data-type="rudimentFamily">Ratamacues</button>
-            <button class="filter-tag" data-filter="strokes" data-type="rudimentFamily">Strokes</button>
-            <button class="filter-tag" data-filter="advanced" data-type="rudimentFamily">Advanced</button>
+            {rudimentFamilies.map(family => (
+              <button class="filter-tag" data-filter={family.id} data-type="rudimentFamily">{family.name}</button>
+            ))}
           </div>
         </div>
 
-        <!-- Specific Rudiments (Top 12 most common) -->
+        <!-- Specific Rudiments -->
         <div class="filter-group">
           <label class="filter-label">Specific Rudiment</label>
           <div class="filter-tags" id="rudimentFilters">
-            <button class="filter-tag" data-filter="5 Stroke Roll" data-type="rudiment">5 Stroke Roll</button>
-            <button class="filter-tag" data-filter="9 Stroke Roll" data-type="rudiment">9 Stroke Roll</button>
-            <button class="filter-tag" data-filter="Paradiddle" data-type="rudiment">Paradiddle</button>
-            <button class="filter-tag" data-filter="Double Paradiddle" data-type="rudiment">Double Paradiddle</button>
-            <button class="filter-tag" data-filter="Flam" data-type="rudiment">Flam</button>
-            <button class="filter-tag" data-filter="Flam Paradiddle" data-type="rudiment">Flam Paradiddle</button>
-            <button class="filter-tag" data-filter="Drag" data-type="rudiment">Drag</button>
-            <button class="filter-tag" data-filter="Swiss Army Triplet" data-type="rudiment">Swiss Army Triplet</button>
+            {Object.values(tagCollections.specificRudiments).map((rudiment: any) => (
+              <button class="filter-tag" data-filter={rudiment.tagValue} data-type="rudiment">{rudiment.uiLabel}</button>
+            ))}
           </div>
         </div>
 
@@ -115,7 +98,7 @@ import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from 
                data-category={video.category}
                data-type={video.type}
                data-tempo={video.tempoCategory}
-               data-meter={video.meter}
+
                data-part-type={video.partType}
                data-rudiments={video.rudiments.join(',')}
                data-rudiment-families={video.rudimentFamilies.join(',')}
@@ -141,12 +124,12 @@ import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from 
               <div class="video-meta">
                 <span class="tempo">{video.tempo} BPM</span>
                 <span class="page">Page {video.pageNumber}</span>
-                <span class="video-type">{video.type === 'counting' ? 'With Counting' : video.type === 'duet' ? 'Duet' : 'Performance'}</span>
-                {video.meter && <span class="meter">{video.meter}</span>}
+                <span class="video-type">{video.type === 'with counting' ? 'With Counting' : video.type === 'practice tempo' ? 'Practice Tempo' : 'Performance Tempo'}</span>
+
                 {video.partType && <span class="part-type">{video.partType}</span>}
               </div>
               <div class="video-rudiments">
-                {video.rudiments.slice(0, 3).map(rudiment => (
+                {video.rudiments.slice(0, 3).map((rudiment: any) => (
                   <span class="rudiment-tag">{rudiment}</span>
                 ))}
               </div>
@@ -289,10 +272,7 @@ import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from 
             showCard = false;
           }
           
-          // Apply meter filter
-          if (activeFilters.meter && card.dataset.meter !== activeFilters.meter) {
-            showCard = false;
-          }
+          // Meter filter removed - these were just exercises at the beginning of the book
           
           // Apply part type filter
           if (activeFilters.partType && card.dataset.partType !== activeFilters.partType) {
@@ -615,14 +595,7 @@ import { videos, videoCategories, tempoCategories, meterTypes, partTypes } from 
     color: #60a5fa;
   }
 
-  .meter {
-    padding: 0.25rem 0.5rem;
-    border-radius: 10px;
-    font-weight: 500;
-    background: rgba(168, 85, 247, 0.2);
-    color: #a78bfa;
-    font-size: 0.7rem;
-  }
+  /* Meter styling removed - these were just exercises at the beginning of the book */
 
   .part-type {
     padding: 0.25rem 0.5rem;

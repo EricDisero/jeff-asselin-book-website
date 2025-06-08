@@ -1,8 +1,11 @@
 // Video data - modular architecture
-// This file imports videos from separate module files for better organization
+// Page-based organization (not skill-based) for easier one-file-at-a-time handling
 
+// SOLOS (well-organized, keep as-is)
 import { videos as solos1to5Videos } from './videos/solos-1-5.js';
 import { videos as solos6to10Videos } from './videos/solos-6-10.js';
+
+// NAMED PIECES (current structure - to be reorganized into 8 page-based files)
 import { videos as namedPiecesVideos } from './videos/named-pieces.js';
 import { videos as namedPieces2Videos } from './videos/named-pieces-2.js';
 import { videos as namedPieces3Videos } from './videos/named-pieces-3.js';
@@ -13,85 +16,57 @@ import { videos as namedPieces7Videos } from './videos/named-pieces-7.js';
 import { videos as namedPieces8Videos } from './videos/named-pieces-8.js';
 import { videos as namedPieces9Videos } from './videos/named-pieces-9.js';
 
-// Categories for filtering
-export const videoCategories = [
-  { id: 'solos-1-5', name: 'Solos #1-#5', count: 0 },
-  { id: 'solos-6-10', name: 'Solos #6-#10', count: 0 },
-  { id: 'named-pieces', name: 'Named Pieces', count: 0 }
-];
+// PLANNED REORGANIZATION (see file-organization-plan.js):
+// named-pieces-1.js (pages 34-42) - 10 songs
+// named-pieces-2.js (pages 43-51) - 11 songs  
+// named-pieces-3.js (pages 52-61) - 9 songs
+// named-pieces-4.js (pages 62-72) - 11 songs
+// named-pieces-5.js (pages 74-82) - 11 songs
+// named-pieces-6.js (pages 84-91) - 8 songs
+// named-pieces-7.js (pages 92-99) - 8 songs
+// named-pieces-8.js (pages 100-104) - 5 songs
 
-// Tempo categories for filtering
-export const tempoCategories = [
-  { id: 'all', name: 'All Tempos', count: 0 },
-  { id: '40-50', name: '40-50 BPM (Learning)', count: 0 },
-  { id: '60-70', name: '60-70 BPM (Practice)', count: 0 },
-  { id: '80-90', name: '80-90 BPM (Building)', count: 0 },
-  { id: '100+', name: '100+ BPM (Performance)', count: 0 }
-];
+// 🏷️ IMPORT CENTRALIZED TAG SYSTEM
+import { tagHelpers, tagCollections } from './tag-system.js';
 
-// Video types for filtering
-export const videoTypes = {
-  'counting': 'With Counting',
-  'performance': 'Performance Tempo', 
-  'duet': 'Duet (Both Parts)',
-  'breakdown': 'Technical Breakdown'
-};
+// 🏷️ DYNAMICALLY GENERATED FILTERS FROM CENTRALIZED TAG SYSTEM
+// Edit tags in tag-system.js - UI updates automatically!
 
-// Meter types for filtering
-export const meterTypes = [
-  { id: 'simple', name: 'Simple Metre' },
-  { id: 'compound', name: 'Compound Metre' },
-  { id: 'waltz', name: 'Waltz (3/4)' }
-];
+// Categories for filtering - from centralized system
+export const videoCategories = Object.values(tagCollections.bookSections).map(tag => ({
+  id: tag.id,
+  name: tag.uiLabel,
+  count: 0
+}));
 
-// Part types for filtering
-export const partTypes = [
-  { id: 'part1', name: 'Part 1 (Full)' },
-  { id: 'part2', name: 'Part 2 (Intro)' }
-];
+// Tempo categories for filtering - from centralized system  
+export const tempoCategories = Object.values(tagCollections.tempoRanges).map(tag => ({
+  id: tag.id,
+  name: tag.uiLabel,
+  count: 0
+}));
 
-// Rudiment families organized by type (from book index pp. 106-109)
-export const rudimentFamilies = [
-  { id: 'rolls', name: 'Rolls' },
-  { id: 'paradiddles', name: 'Paradiddles' },
-  { id: 'flams', name: 'Flams' },
-  { id: 'drags', name: 'Drags' },
-  { id: 'ratamacues', name: 'Ratamacues' },
-  { id: 'strokes', name: 'Single Strokes' },
-  { id: 'advanced', name: 'Advanced Studies' }
-];
+// Video types for filtering - now dynamic from centralized system
+export const videoTypes = Object.fromEntries(
+  Object.values(tagCollections.videoTypes).map(tag => [tag.id, tag.uiLabel])
+);
 
-// Specific rudiments list for filtering
-export const rudimentTypes = [
-  '5 Stroke Roll',
-  '6 Stroke Roll', 
-  '7 Stroke Roll',
-  '9 Stroke Roll',
-  '13 Stroke Roll',
-  '17 Stroke Roll',
-  'Paradiddle',
-  'Paradiddle-diddle',
-  'Double Paradiddle',
-  'Triple Paradiddle',
-  'Flam',
-  'Flam Accent',
-  'Flam Drag',
-  'Flam Paradiddle',
-  'Flam Tap',
-  'Flamacue',
-  'Drag',
-  'Drag Paradiddle #1',
-  'Drag Paradiddle #2',
-  'Single Drag',
-  'Single Drag Tap',
-  'Single Dragadiddle',
-  'Single Ratamacue',
-  'Double Ratamacue',
-  'Single Stroke 4',
-  'Single Stroke 7',
-  'Swiss Army Triplet',
-  'Lesson 25'
-];
+// Meter types removed - these were just exercises at the beginning of the book
+
+// Part types for filtering - from centralized system
+export const partTypes = Object.values(tagCollections.partTypes).map(tag => ({
+  id: tag.id,
+  name: tag.uiLabel
+}));
+
+// Rudiment families - from centralized system
+export const rudimentFamilies = Object.values(tagCollections.rudimentFamilies).map(tag => ({
+  id: tag.id,
+  name: tag.uiLabel
+}));
+
+// Specific rudiments list - from centralized system
+export const rudimentTypes = Object.values(tagCollections.specificRudiments).map(tag => tag.tagValue);
 
 // Utility functions
 function extractYouTubeId(url) {
@@ -107,10 +82,11 @@ function categorizeTempoRange(bpm) {
 }
 
 function getVideoType(title) {
-  if (title.includes('with counting')) return 'counting';
-  if (title.includes('Part 1 and Part 2') || title.includes('duet')) return 'duet';
-  if (title.includes('100bpm') || title.includes('110bpm') || title.includes('120bpm')) return 'performance';
-  return 'breakdown';
+  if (title.includes('with counting')) return 'with counting';
+  if (title.includes('Part 1 and Part 2') || title.includes('duet')) return 'performance tempo'; // Duet videos are performance tempo
+  if (title.includes('100bpm') || title.includes('110bpm') || title.includes('120bpm')) return 'performance tempo';
+  if (title.includes('40bpm') || title.includes('50bpm') || title.includes('60bpm') || title.includes('70bpm') || title.includes('80bpm') || title.includes('90bpm')) return 'practice tempo';
+  return 'practice tempo'; // Default for slower tempos
 }
 
 // Combine all videos from modules
@@ -157,9 +133,7 @@ export const getVideosByRudimentFamily = (family) => {
   return videos.filter(video => video.rudimentFamilies.includes(family));
 };
 
-export const getVideosByMeter = (meter) => {
-  return videos.filter(video => video.meter === meter);
-};
+// Meter filtering removed - these were just exercises at the beginning of the book
 
 export const getVideosByPartType = (partType) => {
   return videos.filter(video => video.partType === partType);

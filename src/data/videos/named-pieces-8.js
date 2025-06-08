@@ -92,7 +92,7 @@ const namedPieces8 = [
     author: 'Chuck Burrows'
   },
 
-  // LATER - Standalone piece (page 91)
+  // LATER - Standalone piece (page 58)
   {
     id: 'later-50-counting',
     title: 'Later - 50 BPM with Counting',
@@ -108,7 +108,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Single Stroke'],
     rudimentFamilies: ['paradiddles', 'flams', 'strokes'],
     description: 'Later with counting overlay for timing development.',
-    pageNumber: 91,
+    pageNumber: 58,
     author: 'Chuck Burrows'
   },
   {
@@ -126,7 +126,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Single Stroke'],
     rudimentFamilies: ['paradiddles', 'flams', 'strokes'],
     description: 'Later at learning tempo.',
-    pageNumber: 91,
+    pageNumber: 58,
     author: 'Chuck Burrows'
   },
   {
@@ -144,7 +144,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Single Stroke'],
     rudimentFamilies: ['paradiddles', 'flams', 'strokes'],
     description: 'Later at moderate tempo.',
-    pageNumber: 91,
+    pageNumber: 58,
     author: 'Chuck Burrows'
   },
   {
@@ -162,7 +162,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Single Stroke'],
     rudimentFamilies: ['paradiddles', 'flams', 'strokes'],
     description: 'Later at intermediate tempo.',
-    pageNumber: 91,
+    pageNumber: 58,
     author: 'Chuck Burrows'
   },
   {
@@ -180,7 +180,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Single Stroke'],
     rudimentFamilies: ['paradiddles', 'flams', 'strokes'],
     description: 'Later at advanced tempo.',
-    pageNumber: 91,
+    pageNumber: 58,
     author: 'Chuck Burrows'
   },
   {
@@ -198,11 +198,11 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Single Stroke'],
     rudimentFamilies: ['paradiddles', 'flams', 'strokes'],
     description: 'Later at performance tempo.',
-    pageNumber: 91,
+    pageNumber: 58,
     author: 'Chuck Burrows'
   },
 
-  // SPIRAL - Standalone piece (page 92)
+  // SPIRAL - Standalone piece (page 61)
   {
     id: 'spiral-50-counting',
     title: 'Spiral - 50 BPM with Counting',
@@ -218,7 +218,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Multiple Bounce Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Spiral with counting overlay for timing development.',
-    pageNumber: 92,
+    pageNumber: 61,
     author: 'Chuck Burrows'
   },
   {
@@ -236,7 +236,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Multiple Bounce Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Spiral at learning tempo.',
-    pageNumber: 92,
+    pageNumber: 61,
     author: 'Chuck Burrows'
   },
   {
@@ -254,7 +254,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Multiple Bounce Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Spiral at moderate tempo.',
-    pageNumber: 92,
+    pageNumber: 61,
     author: 'Chuck Burrows'
   },
   {
@@ -272,7 +272,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Multiple Bounce Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Spiral at intermediate tempo.',
-    pageNumber: 92,
+    pageNumber: 61,
     author: 'Chuck Burrows'
   },
   {
@@ -290,7 +290,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Multiple Bounce Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Spiral at advanced tempo.',
-    pageNumber: 92,
+    pageNumber: 61,
     author: 'Chuck Burrows'
   },
   {
@@ -308,7 +308,7 @@ const namedPieces8 = [
     rudiments: ['Paradiddle', 'Flam', 'Multiple Bounce Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Spiral at performance tempo.',
-    pageNumber: 92,
+    pageNumber: 61,
     author: 'Chuck Burrows'
   },
 
@@ -404,27 +404,27 @@ const namedPieces8 = [
     author: 'Chuck Burrows'
   },
 
-  // STAGGER - EPIC High-Tempo Virtuoso Piece (pages 94-95)
+  // TWO DAY - Complete Part 1/Part 2 structure (pages 96-97)
   {
-    id: 'stagger-part1-90-counting',
-    title: 'Stagger Part 1 - 90 BPM with Counting',
-    youtubeId: '2q40DocQeDs',
-    url: 'https://www.youtube.com/watch?v=2q40DocQeDs',
+    id: 'two-day-part1-50-counting',
+    title: 'Two Day Part 1 - 50 BPM with Counting',
+    youtubeId: 'dO1U8Km6-m0',
+    url: 'https://www.youtube.com/watch?v=dO1U8Km6-m0',
     category: 'named-pieces',
-    tags: ['stagger', 'part 1', 'counting', 'advanced'],
-    tempo: 90,
-    tempoCategory: '80-90',
+    tags: ['two day', 'part 1', 'counting', 'beginner'],
+    tempo: 50,
+    tempoCategory: '40-50',
     type: 'counting',
     partType: 'part1',
     meter: 'simple',
-    rudiments: ['Paradiddle', 'Flam', 'Single Drag Tap', 'Multiple Bounce Roll'],
-    rudimentFamilies: ['paradiddles', 'flams', 'drags', 'rolls'],
-    description: 'Stagger Part 1 with counting overlay - advanced technique development.',
-    pageNumber: 94,
+    rudiments: ['Paradiddle', 'Flam', 'Single Stroke'],
+    rudimentFamilies: ['paradiddles', 'flams', 'strokes'],
+    description: 'Two Day Part 1 with counting overlay for timing development.',
+    pageNumber: 96,
     author: 'Chuck Burrows'
   },
   {
-    id: 'stagger-part1-90',
+    id: 'two-day-part1-50',
     title: 'Stagger Part 1 - 90 BPM',
     youtubeId: 'pZ6dvbphQT8',
     url: 'https://www.youtube.com/watch?v=pZ6dvbphQT8',

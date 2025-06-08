@@ -5,7 +5,7 @@
 import { validateVideo, sortVideos } from '../video-helpers.js';
 
 const namedPieces6Videos = [
-  // EASY DOES IT - Complete Part 1/Part 2 structure (pages 69-70)
+  // EASY DOES IT - Complete Part 1/Part 2 structure (page 56)
   {
     id: 'easy-does-it-part1-50-counting',
     title: 'Easy Does It Part 1 - 50 BPM with Counting',
@@ -21,7 +21,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 1 with counting overlay for timing development.',
-    pageNumber: 69,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -39,7 +39,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 1 at learning tempo.',
-    pageNumber: 69,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -57,7 +57,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 1 at moderate tempo.',
-    pageNumber: 69,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -75,7 +75,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 1 at intermediate tempo.',
-    pageNumber: 69,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -93,7 +93,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 1 at advanced tempo.',
-    pageNumber: 69,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -111,7 +111,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 1 at performance tempo.',
-    pageNumber: 69,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -129,7 +129,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 2 with counting overlay for timing development.',
-    pageNumber: 70,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -147,7 +147,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 2 at learning tempo.',
-    pageNumber: 70,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -165,7 +165,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 2 at moderate tempo.',
-    pageNumber: 70,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -183,7 +183,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 2 at intermediate tempo.',
-    pageNumber: 70,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -201,7 +201,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 2 at advanced tempo.',
-    pageNumber: 70,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -219,7 +219,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It Part 2 at performance tempo.',
-    pageNumber: 70,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
   {
@@ -237,7 +237,7 @@ const namedPieces6Videos = [
     rudiments: ['Paradiddle', 'Flam', 'Double Stroke Open Roll'],
     rudimentFamilies: ['paradiddles', 'flams', 'rolls'],
     description: 'Easy Does It performed as a duet with both parts together.',
-    pageNumber: 69,
+    pageNumber: 56,
     author: 'Chuck Burrows'
   },
 

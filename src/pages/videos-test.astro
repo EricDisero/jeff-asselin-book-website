@@ -1,0 +1,315 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import SongFolder from '../components/SongFolder.astro';
+import { videos } from '../data/videos.js';
+import { groupVideosBySong, getSortedVideoFolders } from '../utils/videoGrouping.js';
+
+// Group all videos and find SPIRAL for testing
+const videoGroups = groupVideosBySong(videos);
+console.log('All video groups:', Object.keys(videoGroups));
+
+// Look for spiral videos with different possible names
+const spiralVideos = (videoGroups as any)['Spiral'] || 
+                   (videoGroups as any)['spiral'] || 
+                   (videoGroups as any)['SPIRAL'] || [];
+
+console.log('Found SPIRAL videos:', spiralVideos.length);
+console.log('Video groups keys:', Object.keys(videoGroups));
+---
+
+<Layout title="Video Folders Test - The Rudimental Blueprint">
+  <Header />
+  
+  <section class="videos">
+    <div class="videos-container">
+      <h1 class="videos-title">Video Folders Test</h1>
+      <p class="videos-subtitle">Testing the new folder system with SPIRAL</p>
+      
+      <!-- Search bar -->
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="search" 
+          placeholder="Search videos..." 
+          class="search-input"
+        />
+      </div>
+      
+             <!-- Basic Video Count Test -->
+       <div class="test-info">
+         <h3>Debug Information:</h3>
+         <p>Total videos loaded: {videos.length}</p>
+         <p>Video groups found: {Object.keys(videoGroups).length}</p>
+         <p>Group names: {Object.keys(videoGroups).join(', ')}</p>
+         <p>SPIRAL videos found: {spiralVideos.length}</p>
+         {spiralVideos.length > 0 && (
+           <div>
+             <p>SPIRAL video titles:</p>
+             <ul>
+               {spiralVideos.map((video: any) => (
+                 <li>{video.title} - {video.tempo} BPM</li>
+               ))}
+             </ul>
+           </div>
+         )}
+       </div>
+
+       <!-- SPIRAL Folder Test -->
+       {spiralVideos.length > 0 ? (
+         <SongFolder 
+           songName="Spiral" 
+           videos={spiralVideos}
+           isExpanded={false}
+         />
+       ) : (
+         <div class="no-videos">
+           <p>No SPIRAL videos found. Check the debug info above.</p>
+         </div>
+       )}
+    </div>
+  </section>
+
+  <!-- Video Modal (same as main page) -->
+  <div id="videoModal" class="video-modal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Video Title</h3>
+        <button class="modal-close" id="modalClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-video">
+        <iframe 
+          id="videoFrame"
+          width="100%" 
+          height="100%" 
+          src="" 
+          style="border: none;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('videoModal') as HTMLElement;
+      const modalBackdrop = document.getElementById('modalBackdrop') as HTMLElement;
+      const modalClose = document.getElementById('modalClose') as HTMLElement;
+      const modalTitle = document.getElementById('modalTitle') as HTMLElement;
+      const videoFrame = document.getElementById('videoFrame') as HTMLIFrameElement;
+      
+      // Video play functionality
+      document.addEventListener('click', function(e) {
+        const target = e.target as HTMLElement;
+        const playBtn = target.closest('.play-btn') as HTMLElement;
+        
+        if (playBtn) {
+          const youtubeId = playBtn.dataset.youtubeId;
+          const videoTitle = playBtn.dataset.videoTitle;
+          
+          if (youtubeId && videoTitle) {
+            modalTitle.textContent = videoTitle;
+            videoFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      });
+      
+      // Close modal
+      function closeModal() {
+        modal.style.display = 'none';
+        videoFrame.src = '';
+        document.body.style.overflow = 'auto';
+      }
+      
+      modalClose?.addEventListener('click', closeModal);
+      modalBackdrop?.addEventListener('click', closeModal);
+      
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</Layout>
+
+<style>
+  .videos {
+    padding: 8rem 0 2rem;
+    min-height: 100vh;
+  }
+
+  .videos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .videos-title {
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 200;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    overflow: visible;
+  }
+
+  .videos-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .search-box {
+    max-width: 400px;
+    margin: 0 auto 3rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .search-input::placeholder {
+    color: #999;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .test-info {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #cccccc;
+  }
+
+  .test-info h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .test-info ul {
+    margin-left: 1rem;
+  }
+
+  .test-info li {
+    margin-bottom: 0.5rem;
+  }
+
+  .no-videos {
+    padding: 2rem;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 8px;
+    color: #ff6b6b;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  /* Modal styles */
+  .video-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+  }
+
+  .modal-content {
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow: hidden;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .modal-close {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-close svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .modal-video {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000000;
+  }
+
+  @media (max-width: 768px) {
+    .videos {
+      padding: 6rem 0 2rem;
+    }
+
+    .videos-container {
+      padding: 0 1rem;
+    }
+
+    .modal-content {
+      width: 95%;
+      margin: 0 1rem;
+    }
+  }
+</style> 
