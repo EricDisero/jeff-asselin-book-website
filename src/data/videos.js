@@ -5,16 +5,7 @@
 import { videos as solos1to5Videos } from './videos/solos-1-5.js';
 import { videos as solos6to10Videos } from './videos/solos-6-10.js';
 
-// NAMED PIECES (current structure - to be reorganized into 8 page-based files)
-import { videos as namedPiecesVideos } from './videos/named-pieces.js';
-import { videos as namedPieces2Videos } from './videos/named-pieces-2.js';
-import { videos as namedPieces3Videos } from './videos/named-pieces-3.js';
-import { videos as namedPieces4Videos } from './videos/named-pieces-4.js';
-import { videos as namedPieces5Videos } from './videos/named-pieces-5.js';
-import { videos as namedPieces6Videos } from './videos/named-pieces-6.js';
-import { videos as namedPieces7Videos } from './videos/named-pieces-7.js';
-import { videos as namedPieces8Videos } from './videos/named-pieces-8.js';
-import { videos as namedPieces9Videos } from './videos/named-pieces-9.js';
+// NAMED PIECES - DELETED - Starting fresh with accurate data
 
 // PLANNED REORGANIZATION (see file-organization-plan.js):
 // named-pieces-1.js (pages 34-42) - 10 songs
@@ -89,19 +80,11 @@ function getVideoType(title) {
   return 'practice tempo'; // Default for slower tempos
 }
 
-// Combine all videos from modules
+// Combine all videos from modules - ONLY SOLOS FOR NOW
 export const videos = [
   ...solos1to5Videos,
-  ...solos6to10Videos,
-  ...namedPiecesVideos,
-  ...namedPieces2Videos,
-  ...namedPieces3Videos,
-  ...namedPieces4Videos,
-  ...namedPieces5Videos,
-  ...namedPieces6Videos,
-  ...namedPieces7Videos,
-  ...namedPieces8Videos,
-  ...namedPieces9Videos
+  ...solos6to10Videos
+  // Named pieces will be added back with accurate data
 ];
 
 // Update category counts based on current videos
@@ -114,7 +97,7 @@ tempoCategories.forEach(category => {
   category.count = videos.filter(video => video.tempoCategory === category.id).length;
 });
 
-console.log(`Loaded ${videos.length} videos from modular architecture: Solos #1-#5, #6-#10, and Named Pieces`);
+console.log(`Loaded ${videos.length} videos from modular architecture: Solos #1-#5 and #6-#10 ONLY (Named Pieces deleted for fresh start)`);
 
 // Utility functions for filtering
 export const getVideosByCategory = (category) => {

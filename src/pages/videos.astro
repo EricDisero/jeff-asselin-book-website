@@ -93,21 +93,39 @@ import { tagCollections } from '../data/tag-system.js';
       
       <!-- Video grid -->
       <div class="video-grid" id="videoGrid">
-        {videos.map(video => (
+        {videos.map(video => {
+          // Map partType values to filter IDs for proper filtering
+          const partTypeMap = {
+            'part 1': 'part-1',
+            'part 2': 'part-2', 
+            'duet': 'duet',
+            'standalone': 'standalone'
+          };
+          const mappedPartType = partTypeMap[video.partType] || video.partType;
+
+          // Map video type values to filter IDs for proper filtering
+          const videoTypeMap = {
+            'with counting': 'with-counting',
+            'practice tempo': 'practice-tempo',
+            'performance tempo': 'performance-tempo'
+          };
+          const mappedVideoType = videoTypeMap[video.type] || video.type;
+
+          return (
           <div class="video-card" 
                data-category={video.category}
-               data-type={video.type}
+               data-type={mappedVideoType}
                data-tempo={video.tempoCategory}
-
-               data-part-type={video.partType}
-               data-rudiments={video.rudiments.join(',')}
-               data-rudiment-families={video.rudimentFamilies.join(',')}
-               data-tags={video.tags.join(',')}>
+               data-part-type={mappedPartType}
+               data-rudiments={video.rudiments ? video.rudiments.join(',') : ''}
+               data-rudiment-families={video.rudimentFamilies ? video.rudimentFamilies.join(',') : ''}
+               data-tags={video.tags ? video.tags.join(',') : ''}>
             <div class="video-thumbnail">
               <img 
                 src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
                 alt={video.title}
                 class="thumbnail-image"
+                onerror="handleThumbnailError(this)"
               />
               <div class="play-overlay">
                 <button class="play-btn" data-youtube-id={video.youtubeId} data-video-title={video.title}>
@@ -125,17 +143,17 @@ import { tagCollections } from '../data/tag-system.js';
                 <span class="tempo">{video.tempo} BPM</span>
                 <span class="page">Page {video.pageNumber}</span>
                 <span class="video-type">{video.type === 'with counting' ? 'With Counting' : video.type === 'practice tempo' ? 'Practice Tempo' : 'Performance Tempo'}</span>
-
                 {video.partType && <span class="part-type">{video.partType}</span>}
               </div>
               <div class="video-rudiments">
-                {video.rudiments.slice(0, 3).map((rudiment: any) => (
+                {video.rudiments && video.rudiments.slice(0, 3).map((rudiment: any) => (
                   <span class="rudiment-tag">{rudiment}</span>
                 ))}
               </div>
             </div>
           </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   </section>
@@ -167,6 +185,24 @@ import { tagCollections } from '../data/tag-system.js';
   </div>
 
   <script>
+    // Handle thumbnail fallbacks
+    function handleThumbnailError(img) {
+      const youtubeId = img.src.split('/')[4];
+      const fallbacks = ['hqdefault.jpg', 'sddefault.jpg', 'mqdefault.jpg', 'default.jpg', '0.jpg'];
+      
+      // Get current fallback index from data attribute or start at 0
+      let currentIndex = parseInt(img.dataset.fallbackIndex || '0');
+      
+      if (currentIndex < fallbacks.length) {
+        img.dataset.fallbackIndex = (currentIndex + 1).toString();
+        img.src = `https://img.youtube.com/vi/${youtubeId}/${fallbacks[currentIndex]}`;
+      } else {
+        // All fallbacks failed, show a placeholder or use a working thumbnail from another video
+        img.style.display = 'none';
+        img.parentElement.innerHTML = '<div class="thumbnail-placeholder">No thumbnail available</div>';
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       const searchInput = document.getElementById('search') as HTMLInputElement;
       const videoCards = document.querySelectorAll('.video-card') as NodeListOf<HTMLElement>;
@@ -191,7 +227,7 @@ import { tagCollections } from '../data/tag-system.js';
           const filterType = this.dataset.type!;
           const filterValue = this.dataset.filter!;
           
-          if (filterValue === 'all') {
+          if (filterValue === 'all' || filterValue === 'all-videos') {
             // Clear category filters
             delete activeFilters.category;
             document.querySelectorAll('[data-type="category"]').forEach(btn => btn.classList.remove('active'));
@@ -223,7 +259,7 @@ import { tagCollections } from '../data/tag-system.js';
         document.querySelectorAll('.filter-tag').forEach(tag => {
           tag.classList.remove('active');
         });
-        document.querySelector('[data-filter="all"]')?.classList.add('active');
+        document.querySelector('[data-filter="all-videos"]')?.classList.add('active');
         updateActiveFiltersDisplay();
         filterVideos();
       });

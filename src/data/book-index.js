@@ -256,13 +256,13 @@ export const partTypes = {
 export const taggingStandards = {
   // CORE TAGGING RULES - Every video MUST have these categories
   mandatory: {
-    pageReference: {
+  pageReference: {
       rule: 'Every video MUST include page number from book',
-      format: 'p{number}',
+    format: 'p{number}',
       examples: ['p14', 'p34', 'p67'],
       source: 'pageNumber field in video data'
-    },
-    pieceName: {
+  },
+  pieceName: {
       rule: 'Exact piece name as written in book (lowercase for tags)',
       examples: ['solo #1', 'simp', 'waltz', 'tetralogy'],
       source: 'title field extraction'
