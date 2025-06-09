@@ -245,6 +245,10 @@ function getSongDisplayName(songName: string): string {
             modalTitle.textContent = videoTitle;
             videoFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
             modal.style.display = 'flex';
+            // Trigger the animation after display is set
+            requestAnimationFrame(() => {
+              modal.classList.add('active');
+            });
             document.body.style.overflow = 'hidden';
           }
         }
@@ -410,8 +414,12 @@ function getSongDisplayName(songName: string): string {
       
       function closeModal() {
         if (modal && videoFrame) {
-          modal.style.display = 'none';
-          videoFrame.src = '';
+          modal.classList.remove('active');
+          // Wait for animation to complete before hiding
+          setTimeout(() => {
+            modal.style.display = 'none';
+            videoFrame.src = '';
+          }, 300);
           document.body.style.overflow = 'auto';
         }
       }
@@ -724,7 +732,7 @@ function getSongDisplayName(songName: string): string {
     width: 100%;
     height: 100%;
     z-index: 2000;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -733,8 +741,8 @@ function getSongDisplayName(songName: string): string {
   }
 
   .video-modal.active {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .modal-backdrop {
