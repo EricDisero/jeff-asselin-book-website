@@ -215,6 +215,115 @@ export const rudimentPageMapping = {
   'Lesson 25': [22, 24, 25, 28, 29]
 };
 
+// SPECIFIC SOLO RUDIMENT MAPPING
+// Based on actual rudiments that appear in each solo (as listed in book index)
+// Named pieces do not have specific rudiments listed in the book index
+export const soloSpecificRudiments = {
+  // SOLOS 1-5
+  solo1: {
+    part1: { // Page 14
+      rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Triple Paradiddle'],
+      families: ['rolls', 'paradiddles']
+    },
+    part2: { // Page 15
+      rudiments: ['Double Paradiddle', 'Paradiddle', 'Paradiddle-diddle'],
+      families: ['paradiddles']
+    }
+  },
+  solo2: {
+    part1: { // Page 16
+      rudiments: ['5 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Triple Paradiddle'],
+      families: ['rolls', 'paradiddles']
+    },
+    part2: { // Page 17
+      rudiments: ['Double Paradiddle', 'Drag', 'Paradiddle'],
+      families: ['drags', 'paradiddles']
+    }
+  },
+  solo3: {
+    part1: { // Page 18
+      rudiments: ['Double Paradiddle', 'Paradiddle', 'Single Stroke 4', 'Single Stroke 7', 'Triple Paradiddle'],
+      families: ['paradiddles', 'strokes']
+    },
+    part2: { // Page 19
+      rudiments: ['Double Paradiddle', 'Paradiddle', 'Paradiddle-diddle', 'Single Stroke 7', 'Triple Paradiddle'],
+      families: ['paradiddles', 'strokes']
+    }
+  },
+  solo4: {
+    part1: { // Page 20
+      rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Flam', 'Flam Paradiddle', 'Flamacue', 'Single Stroke 4'],
+      families: ['rolls', 'paradiddles', 'flams', 'strokes']
+    },
+    part2: { // Page 21
+      rudiments: ['Flam', 'Flam Accent', 'Flam Drag', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle-diddle', 'Single Drag', 'Single Stroke 4', 'Single Stroke 7'],
+      families: ['paradiddles', 'flams', 'drags', 'strokes']
+    }
+  },
+  solo5: {
+    part1: { // Page 22
+      rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam Paradiddle', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Stroke 7'],
+      families: ['rolls', 'paradiddles', 'flams', 'strokes']
+    },
+    part2: { // Page 23
+      rudiments: ['Double Paradiddle', 'Drag', 'Drag Paradiddle #1', 'Flam', 'Paradiddle', 'Single Stroke 4'],
+      families: ['paradiddles', 'drags', 'flams', 'strokes']
+    }
+  },
+  
+  // SOLOS 6-10
+  solo6: {
+    part1: { // Page 24
+      rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+      families: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes']
+    },
+    part2: { // Page 25
+      rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+      families: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes']
+    }
+  },
+  solo7: {
+    part1: { // Page 26
+      rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
+      families: ['rolls', 'paradiddles']
+    },
+    part2: { // Page 27
+      rudiments: ['Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+      families: ['flams', 'paradiddles']
+    }
+  },
+  solo8: {
+    part1: { // Page 28
+      rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+      families: ['rolls', 'drags', 'flams', 'strokes']
+    },
+    part2: { // Page 29
+      rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+      families: ['drags', 'flams', 'strokes']
+    }
+  },
+  solo9: {
+    part1: { // Page 30
+      rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+      families: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced']
+    },
+    part2: { // Page 31
+      rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
+      families: ['flams', 'advanced']
+    }
+  },
+  solo10: {
+    part1: { // Page 32
+      rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
+      families: ['rolls', 'paradiddles', 'drags']
+    },
+    part2: { // Page 33
+      rudiments: ['Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Single Drag Tap'],
+      families: ['paradiddles', 'drags', 'flams']
+    }
+  }
+};
+
 // TEMPO RANGES (Pure BPM segmentation without assumptions)
 export const tempoRanges = {
   slow: { range: '40-50', bpm: [40, 45, 50] },

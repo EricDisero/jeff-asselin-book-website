@@ -153,7 +153,7 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
     transform: translateY(-8px) scale(1.02);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #2a2a3a 0%, #151515 100%);
+    background: linear-gradient(135deg, #0c1724 0%, #151515 100%);
   }
   
   .folder-card:hover::after {
@@ -166,8 +166,8 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
   }
   
   .folder-card[data-expanded="true"] {
-    border-color: rgba(59, 130, 246, 0.6);
-    background: rgba(59, 130, 246, 0.1);
+    border-color: #0a192b;
+    background: rgba(10, 25, 43, 0.1);
   }
   
   .folder-background {
@@ -187,11 +187,11 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
   .folder-card .background-pattern,
   .folder-card[data-meter="compound"] .background-pattern,
   .folder-card[data-meter="waltz"] .background-pattern {
-    background: linear-gradient(135deg, #0a0a1a 0%, #000000 100%);
+    background: linear-gradient(135deg, #0b0f14 0%, #000000 100%);
   }
   
   .folder-card:hover .background-pattern {
-    background: linear-gradient(135deg, #0f0f2a 0%, #000000 100%);
+    background: linear-gradient(135deg, #0c1724 0%, #000000 100%);
   }
   
   .background-overlay {
@@ -199,7 +199,7 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
     inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.0) 0%,
       rgba(0, 0, 0, 0.5) 40%,
       rgba(0, 0, 0, 0.3) 100%
     );
@@ -209,7 +209,7 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
   .folder-card:hover .background-overlay {
     background: linear-gradient(
       135deg,
-      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.0) 0%,
       rgba(0, 0, 0, 0.3) 40%,
       rgba(0, 0, 0, 0.1) 100%
     );
@@ -255,7 +255,8 @@ const primaryRudiments = [...new Set(videos.flatMap(v => v.rudiments))].slice(0,
   }
   
   .folder-card:hover .folder-title {
-    color: #f0f0f0;
+    color: #b8cce6;
+    text-shadow: 0 0 20px rgba(184, 204, 230, 0.3);
     transform: translateX(8px);
   }
   

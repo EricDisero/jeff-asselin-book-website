@@ -1,0 +1,235 @@
+/* ==========================================================================
+   VIDEO CARD SYSTEM - Centralized Styles
+   ========================================================================== */
+
+/* Base Video Card */
+.video-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Video Thumbnail */
+.video-thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+}
+
+.play-btn svg {
+  color: #000;
+  margin-left: 2px;
+}
+
+/* Video Info Section */
+.video-info {
+  padding: 1rem;
+}
+
+.video-title {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.video-description {
+  color: #ccc;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.video-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  flex-wrap: wrap;
+}
+
+/* Meta Tags */
+.tempo, .page {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  color: #ccc;
+}
+
+.video-type {
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.meter {
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  font-weight: 500;
+  background: rgba(168, 85, 247, 0.2);
+  color: #a78bfa;
+}
+
+.part-type {
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  font-weight: 500;
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.rudiment-tag {
+  background: rgba(255, 255, 255, 0.08);
+  color: #cccccc;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SIZE VARIANTS
+   ========================================================================== */
+
+/* Compact Cards (for folder view) */
+.video-card--compact {
+  /* Inherit base styles */
+}
+
+.video-card--compact .play-btn {
+  width: 50px;
+  height: 50px;
+}
+
+.video-card--compact .play-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.video-card--compact .video-title {
+  font-size: 0.9rem;
+}
+
+.video-card--compact .video-description {
+  font-size: 0.8rem;
+}
+
+/* Standard Cards (for main grid view) */
+.video-card--standard {
+  /* Inherit base styles */
+}
+
+.video-card--standard .play-btn {
+  width: 60px;
+  height: 60px;
+}
+
+.video-card--standard .play-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.video-card--standard .video-info {
+  padding: 1.5rem;
+}
+
+.video-card--standard .video-meta {
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.video-card--standard .tempo, 
+.video-card--standard .page {
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+}
+
+.video-card--standard .video-type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+}
+
+.video-card--standard .part-type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+}
+
+/* ==========================================================================
+   GRID LAYOUTS
+   ========================================================================== */
+
+/* Standard Grid (main videos page) */
+.video-grid--standard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Compact Grid (folder view) */
+.video-grid--compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .video-grid--standard,
+  .video-grid--compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .video-grid--compact {
+    padding: 1rem;
+  }
+} 

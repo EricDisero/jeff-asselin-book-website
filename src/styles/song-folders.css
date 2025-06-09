@@ -1,0 +1,290 @@
+/* ==========================================================================
+   SONG FOLDER SYSTEM - Centralized Styles
+   ========================================================================== */
+
+.song-folder {
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   FOLDER CARD STYLES
+   ========================================================================== */
+
+.folder-card {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a2a 0%, #0a0a0a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  min-height: 200px;
+}
+
+.folder-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.folder-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #2a2a3a 0%, #151515 100%);
+}
+
+.folder-card:hover::after {
+  left: 100%;
+}
+
+.folder-card:active,
+.folder-card[data-expanded="true"] {
+  border-color: #0d2644;
+}
+
+.folder-card[data-expanded="true"] {
+  border-color: #0a192b;
+  background: rgba(10, 25, 43, 0.1);
+}
+
+/* Background Patterns */
+.folder-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.background-pattern {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s ease;
+  background: linear-gradient(135deg, #0a0a1a 0%, #000000 100%);
+}
+
+.folder-card:hover .background-pattern {
+  background: linear-gradient(135deg, #0f0f2a 0%, #000000 100%);
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  transition: all 0.4s ease;
+}
+
+.folder-card:hover .background-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+/* Folder Content */
+.folder-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.folder-header {
+  margin-bottom: 1rem;
+}
+
+.folder-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.02em;
+  transition: all 0.3s ease;
+}
+
+.folder-card:hover .folder-title {
+  color: #f0f0f0;
+  transform: translateX(8px);
+}
+
+.folder-subtitle {
+  font-size: 1rem;
+  color: #888888;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.folder-card:hover .folder-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+  color: #e0e0e0;
+}
+
+.folder-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.folder-stats span {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tags */
+.folder-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.meter-tag {
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meter-tag.simple {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.meter-tag.compound {
+  background: rgba(168, 85, 247, 0.2);
+  color: #a78bfa;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.meter-tag.waltz {
+  background: rgba(236, 72, 153, 0.2);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+}
+
+.folder-tags .rudiment-tag {
+  padding: 0.3rem 0.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d1d5db;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Expand Button */
+.expand-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.2);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  align-self: flex-start;
+}
+
+.expand-btn:hover {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.expand-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.folder-card[data-expanded="true"] .expand-icon {
+  transform: rotate(180deg);
+}
+
+/* Glow Effect */
+.folder-glow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.folder-card:hover .folder-glow {
+  opacity: 1;
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ==========================================================================
+   VIDEOS CONTAINER (EXPANDABLE)
+   ========================================================================== */
+
+.videos-container {
+  margin-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.videos-container[data-expanded="true"] {
+  max-height: 2000px; /* Adjust based on content */
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .folder-content {
+    padding: 1.5rem;
+  }
+  
+  .folder-title {
+    font-size: 2rem;
+  }
+  
+  .folder-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+} 

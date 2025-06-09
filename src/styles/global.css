@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+/* Component Stylesheets */
+@import "./video-cards.css";
+@import "./song-folders.css";

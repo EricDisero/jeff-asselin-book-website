@@ -1,28 +1,28 @@
 // SOLOS #6-#10 VIDEO DATA
-// Complete collection of videos for solos 6 through 10 by Jeff Asselin
-// Pages 24-33 in The Rudimental Blueprint
+// Complete collection of videos for solos 6-10 
+// Written by Chuck Burrows
+// Properly tagged system with clean tags (no redundant rudiments/partType in tags)
 
 import { validateVideo, sortVideos } from '../video-helpers.js';
 
-// Solo #6 videos - Pages 24-25
+// Solo #6-10 videos - Pages 24-33
 const solos6to10Videos = [
-  // SOLO #6 PART 1 VIDEOS (Page 24)
+  // SOLO #6 VIDEOS (Pages 24-25)
   {
     id: 'solo6-part1-50-counting',
     title: 'Solo #6 Part 1 - 50 BPM with Counting',
     youtubeId: 'WZhBl6Mj5qU',
     url: 'https://www.youtube.com/watch?v=WZhBl6Mj5qU',
     category: 'solos-6-10',
-    tags: ['p24', 'solo #6', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'solo #6'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
-    description: 'Solo #6 Part 1 performed at learning tempo with counting to help develop timing.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
+    description: 'Solo #6 Part 1 with counting for timing development.',
+    pageNumber: 24
   },
   {
     id: 'solo6-part1-50',
@@ -30,16 +30,15 @@ const solos6to10Videos = [
     youtubeId: 'ITE9et9K_oA',
     url: 'https://www.youtube.com/watch?v=ITE9et9K_oA',
     category: 'solos-6-10',
-    tags: ['p24', 'solo #6', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'solo #6'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
     description: 'Solo #6 Part 1 at learning tempo.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    pageNumber: 24
   },
   {
     id: 'solo6-part1-60',
@@ -47,16 +46,15 @@ const solos6to10Videos = [
     youtubeId: '8AjtcDOiv_8',
     url: 'https://www.youtube.com/watch?v=8AjtcDOiv_8',
     category: 'solos-6-10',
-    tags: ['p24', 'solo #6', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'solo #6'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
     description: 'Solo #6 Part 1 at moderate practice tempo.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    pageNumber: 24
   },
   {
     id: 'solo6-part1-70',
@@ -64,16 +62,15 @@ const solos6to10Videos = [
     youtubeId: 'KQspieNTRdc',
     url: 'https://www.youtube.com/watch?v=KQspieNTRdc',
     category: 'solos-6-10',
-    tags: ['p24', 'solo #6', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'solo #6'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
     description: 'Solo #6 Part 1 at intermediate practice tempo.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    pageNumber: 24
   },
   {
     id: 'solo6-part1-80',
@@ -81,16 +78,15 @@ const solos6to10Videos = [
     youtubeId: 'GTuFQCP2VX8',
     url: 'https://www.youtube.com/watch?v=GTuFQCP2VX8',
     category: 'solos-6-10',
-    tags: ['p24', 'solo #6', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'solo #6'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
     description: 'Solo #6 Part 1 at advanced practice tempo.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    pageNumber: 24
   },
   {
     id: 'solo6-part1-90',
@@ -98,16 +94,15 @@ const solos6to10Videos = [
     youtubeId: 'LcDsduy-xYU',
     url: 'https://www.youtube.com/watch?v=LcDsduy-xYU',
     category: 'solos-6-10',
-    tags: ['p24', 'solo #6', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'solo #6'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
     description: 'Solo #6 Part 1 approaching performance tempo.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    pageNumber: 24
   },
   {
     id: 'solo6-part1-100',
@@ -115,35 +110,33 @@ const solos6to10Videos = [
     youtubeId: 'g4rhOgryJAY',
     url: 'https://www.youtube.com/watch?v=g4rhOgryJAY',
     category: 'solos-6-10',
-    tags: ['p24', 'solo #6', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'solo #6'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
     description: 'Solo #6 Part 1 at performance tempo.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    pageNumber: 24
   },
 
-  // SOLO #6 PART 2 VIDEOS (Page 25)
+  // SOLO #6 PART 2 VIDEOS
   {
     id: 'solo6-part2-50-counting',
     title: 'Solo #6 Part 2 - 50 BPM with Counting',
     youtubeId: 'pJcd2JoIMbU',
     url: 'https://www.youtube.com/watch?v=pJcd2JoIMbU',
     category: 'solos-6-10',
-    tags: ['p25', 'solo #6', 'part 2', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p25', 'solo #6'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes'],
     description: 'Solo #6 Part 2 with counting for timing development.',
-    pageNumber: 25,
-    author: 'Jeff Asselin'
+    pageNumber: 25
   },
   {
     id: 'solo6-part2-50',
@@ -151,16 +144,15 @@ const solos6to10Videos = [
     youtubeId: '0dkEypZbn-c',
     url: 'https://www.youtube.com/watch?v=0dkEypZbn-c',
     category: 'solos-6-10',
-    tags: ['p25', 'solo #6', 'part 2', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p25', 'solo #6'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes'],
     description: 'Solo #6 Part 2 at learning tempo.',
-    pageNumber: 25,
-    author: 'Jeff Asselin'
+    pageNumber: 25
   },
   {
     id: 'solo6-part2-60',
@@ -168,16 +160,15 @@ const solos6to10Videos = [
     youtubeId: 'FlRpF8GCUoc',
     url: 'https://www.youtube.com/watch?v=FlRpF8GCUoc',
     category: 'solos-6-10',
-    tags: ['p25', 'solo #6', 'part 2', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p25', 'solo #6'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes'],
     description: 'Solo #6 Part 2 at moderate practice tempo.',
-    pageNumber: 25,
-    author: 'Jeff Asselin'
+    pageNumber: 25
   },
   {
     id: 'solo6-part2-70',
@@ -185,16 +176,15 @@ const solos6to10Videos = [
     youtubeId: '_KARW-H8YjI',
     url: 'https://www.youtube.com/watch?v=_KARW-H8YjI',
     category: 'solos-6-10',
-    tags: ['p25', 'solo #6', 'part 2', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p25', 'solo #6'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes'],
     description: 'Solo #6 Part 2 at intermediate practice tempo.',
-    pageNumber: 25,
-    author: 'Jeff Asselin'
+    pageNumber: 25
   },
   {
     id: 'solo6-part2-80',
@@ -202,16 +192,15 @@ const solos6to10Videos = [
     youtubeId: 'OOdBHEnLiAM',
     url: 'https://www.youtube.com/watch?v=OOdBHEnLiAM',
     category: 'solos-6-10',
-    tags: ['p25', 'solo #6', 'part 2', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p25', 'solo #6'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes'],
     description: 'Solo #6 Part 2 at advanced practice tempo.',
-    pageNumber: 25,
-    author: 'Jeff Asselin'
+    pageNumber: 25
   },
   {
     id: 'solo6-part2-90',
@@ -219,16 +208,15 @@ const solos6to10Videos = [
     youtubeId: '2e-HG0PU55Y',
     url: 'https://www.youtube.com/watch?v=2e-HG0PU55Y',
     category: 'solos-6-10',
-    tags: ['p25', 'solo #6', 'part 2', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p25', 'solo #6'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes'],
     description: 'Solo #6 Part 2 approaching performance tempo.',
-    pageNumber: 25,
-    author: 'Jeff Asselin'
+    pageNumber: 25
   },
   {
     id: 'solo6-part2-100',
@@ -236,54 +224,52 @@ const solos6to10Videos = [
     youtubeId: '_P1INq4kxxM',
     url: 'https://www.youtube.com/watch?v=_P1INq4kxxM',
     category: 'solos-6-10',
-    tags: ['p25', 'solo #6', 'part 2', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p25', 'solo #6'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
+    rudiments: ['Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['drags', 'flams', 'paradiddles', 'ratamacues', 'strokes'],
     description: 'Solo #6 Part 2 at performance tempo.',
-    pageNumber: 25,
-    author: 'Jeff Asselin'
+    pageNumber: 25
   },
 
   // SOLO #6 DUET
   {
-    id: 'solo6-duet-100',
-    title: 'Solo #6 Part 1 and Part 2 - 100 BPM Duet',
+    id: 'solo6-duet',
+    title: 'Solo #6 Part 1 and Part 2 - 100 BPM',
     youtubeId: 'ZwJ4pGrPja8',
     url: 'https://www.youtube.com/watch?v=ZwJ4pGrPja8',
     category: 'solos-6-10',
-    tags: ['p24', 'p25', 'solo #6', 'duet', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'rolls', 'flams'],
+    tags: ['p24', 'p25', 'solo #6', 'duet'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'duet',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam'],
-    rudimentFamilies: ['rolls', 'flams'],
-    description: 'Solo #6 performed as a duet with both parts together.',
-    pageNumber: 24,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '17 Stroke Roll', 'Double Ratamacue', 'Drag', 'Drag Paradiddle #1', 'Drag Paradiddle #2', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Paradiddle', 'Paradiddle-diddle', 'Single Ratamacue', 'Single Stroke 4', 'Single Stroke 7'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'paradiddles', 'strokes'],
+    description: 'Solo #6 performed as a duet with both parts.',
+    pageNumber: 24
   },
 
-  // SOLO #7 PART 1 VIDEOS (Page 26)
+  // SOLO #7 VIDEOS (Pages 26-27)
+  // SOLO #7 PART 1 VIDEOS
   {
     id: 'solo7-part1-50-counting',
     title: 'Solo #7 Part 1 - 50 BPM with Counting',
     youtubeId: 'I06CVLnp9Bo',
     url: 'https://www.youtube.com/watch?v=I06CVLnp9Bo',
     category: 'solos-6-10',
-    tags: ['p26', 'solo #7', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'solo #7'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 1',
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
     rudimentFamilies: ['rolls', 'paradiddles'],
-    description: 'Solo #7 Part 1 performed at learning tempo with counting.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    description: 'Solo #7 Part 1 with counting for timing development.',
+    pageNumber: 26
   },
   {
     id: 'solo7-part1-50',
@@ -291,7 +277,7 @@ const solos6to10Videos = [
     youtubeId: 'E3IC3E62nNE',
     url: 'https://www.youtube.com/watch?v=E3IC3E62nNE',
     category: 'solos-6-10',
-    tags: ['p26', 'solo #7', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'solo #7'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
@@ -299,8 +285,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
     rudimentFamilies: ['rolls', 'paradiddles'],
     description: 'Solo #7 Part 1 at learning tempo.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    pageNumber: 26
   },
   {
     id: 'solo7-part1-60',
@@ -308,7 +293,7 @@ const solos6to10Videos = [
     youtubeId: 'wAWGNL2FPbQ',
     url: 'https://www.youtube.com/watch?v=wAWGNL2FPbQ',
     category: 'solos-6-10',
-    tags: ['p26', 'solo #7', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'solo #7'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
@@ -316,8 +301,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
     rudimentFamilies: ['rolls', 'paradiddles'],
     description: 'Solo #7 Part 1 at moderate practice tempo.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    pageNumber: 26
   },
   {
     id: 'solo7-part1-70',
@@ -325,7 +309,7 @@ const solos6to10Videos = [
     youtubeId: 'UhzehMnBChk',
     url: 'https://www.youtube.com/watch?v=UhzehMnBChk',
     category: 'solos-6-10',
-    tags: ['p26', 'solo #7', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'solo #7'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
@@ -333,8 +317,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
     rudimentFamilies: ['rolls', 'paradiddles'],
     description: 'Solo #7 Part 1 at intermediate practice tempo.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    pageNumber: 26
   },
   {
     id: 'solo7-part1-80',
@@ -342,7 +325,7 @@ const solos6to10Videos = [
     youtubeId: 'GQq1mSEqd-Q',
     url: 'https://www.youtube.com/watch?v=GQq1mSEqd-Q',
     category: 'solos-6-10',
-    tags: ['p26', 'solo #7', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'solo #7'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
@@ -350,8 +333,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
     rudimentFamilies: ['rolls', 'paradiddles'],
     description: 'Solo #7 Part 1 at advanced practice tempo.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    pageNumber: 26
   },
   {
     id: 'solo7-part1-90',
@@ -359,7 +341,7 @@ const solos6to10Videos = [
     youtubeId: 'qhsJSZp7vyg',
     url: 'https://www.youtube.com/watch?v=qhsJSZp7vyg',
     category: 'solos-6-10',
-    tags: ['p26', 'solo #7', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'solo #7'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
@@ -367,8 +349,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
     rudimentFamilies: ['rolls', 'paradiddles'],
     description: 'Solo #7 Part 1 approaching performance tempo.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    pageNumber: 26
   },
   {
     id: 'solo7-part1-100',
@@ -376,7 +357,7 @@ const solos6to10Videos = [
     youtubeId: 'TUnngsvyfdA',
     url: 'https://www.youtube.com/watch?v=TUnngsvyfdA',
     category: 'solos-6-10',
-    tags: ['p26', 'solo #7', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'solo #7'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
@@ -384,27 +365,25 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
     rudimentFamilies: ['rolls', 'paradiddles'],
     description: 'Solo #7 Part 1 at performance tempo.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    pageNumber: 26
   },
 
-  // SOLO #7 PART 2 VIDEOS (Page 27)
+  // SOLO #7 PART 2 VIDEOS
   {
     id: 'solo7-part2-50-counting',
     title: 'Solo #7 Part 2 - 50 BPM with Counting',
     youtubeId: 'pCl_9OuaR9w',
     url: 'https://www.youtube.com/watch?v=pCl_9OuaR9w',
     category: 'solos-6-10',
-    tags: ['p27', 'solo #7', 'part 2', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p27', 'solo #7'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
-    rudimentFamilies: ['rolls', 'paradiddles'],
+    rudiments: ['Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+    rudimentFamilies: ['flams', 'paradiddles'],
     description: 'Solo #7 Part 2 with counting for timing development.',
-    pageNumber: 27,
-    author: 'Jeff Asselin'
+    pageNumber: 27
   },
   {
     id: 'solo7-part2-50',
@@ -412,16 +391,15 @@ const solos6to10Videos = [
     youtubeId: 'T-1ilaNym_I',
     url: 'https://www.youtube.com/watch?v=T-1ilaNym_I',
     category: 'solos-6-10',
-    tags: ['p27', 'solo #7', 'part 2', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p27', 'solo #7'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
-    rudimentFamilies: ['rolls', 'paradiddles'],
+    rudiments: ['Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+    rudimentFamilies: ['flams', 'paradiddles'],
     description: 'Solo #7 Part 2 at learning tempo.',
-    pageNumber: 27,
-    author: 'Jeff Asselin'
+    pageNumber: 27
   },
   {
     id: 'solo7-part2-60',
@@ -429,16 +407,15 @@ const solos6to10Videos = [
     youtubeId: 'jTOwTzPYGMU',
     url: 'https://www.youtube.com/watch?v=jTOwTzPYGMU',
     category: 'solos-6-10',
-    tags: ['p27', 'solo #7', 'part 2', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p27', 'solo #7'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
-    rudimentFamilies: ['rolls', 'paradiddles'],
+    rudiments: ['Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+    rudimentFamilies: ['flams', 'paradiddles'],
     description: 'Solo #7 Part 2 at moderate practice tempo.',
-    pageNumber: 27,
-    author: 'Jeff Asselin'
+    pageNumber: 27
   },
   {
     id: 'solo7-part2-70',
@@ -446,16 +423,15 @@ const solos6to10Videos = [
     youtubeId: 'JRd2VfUO8Js',
     url: 'https://www.youtube.com/watch?v=JRd2VfUO8Js',
     category: 'solos-6-10',
-    tags: ['p27', 'solo #7', 'part 2', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p27', 'solo #7'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
-    rudimentFamilies: ['rolls', 'paradiddles'],
+    rudiments: ['Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+    rudimentFamilies: ['flams', 'paradiddles'],
     description: 'Solo #7 Part 2 at intermediate practice tempo.',
-    pageNumber: 27,
-    author: 'Jeff Asselin'
+    pageNumber: 27
   },
   {
     id: 'solo7-part2-80',
@@ -463,16 +439,15 @@ const solos6to10Videos = [
     youtubeId: 'tvdIB9Gz2MA',
     url: 'https://www.youtube.com/watch?v=tvdIB9Gz2MA',
     category: 'solos-6-10',
-    tags: ['p27', 'solo #7', 'part 2', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p27', 'solo #7'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
-    rudimentFamilies: ['rolls', 'paradiddles'],
+    rudiments: ['Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+    rudimentFamilies: ['flams', 'paradiddles'],
     description: 'Solo #7 Part 2 at advanced practice tempo.',
-    pageNumber: 27,
-    author: 'Jeff Asselin'
+    pageNumber: 27
   },
   {
     id: 'solo7-part2-100',
@@ -480,54 +455,52 @@ const solos6to10Videos = [
     youtubeId: 'TLaKkHyCeYo',
     url: 'https://www.youtube.com/watch?v=TLaKkHyCeYo',
     category: 'solos-6-10',
-    tags: ['p27', 'solo #7', 'part 2', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p27', 'solo #7'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 2',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
-    rudimentFamilies: ['rolls', 'paradiddles'],
+    rudiments: ['Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+    rudimentFamilies: ['flams', 'paradiddles'],
     description: 'Solo #7 Part 2 at performance tempo.',
-    pageNumber: 27,
-    author: 'Jeff Asselin'
+    pageNumber: 27
   },
 
   // SOLO #7 DUET
   {
-    id: 'solo7-duet-100',
-    title: 'Solo #7 Part 1 and Part 2 - 100 BPM Duet',
+    id: 'solo7-duet',
+    title: 'Solo #7 Part 1 and Part 2 - 100 BPM',
     youtubeId: 'sXUl4Me4_9A',
     url: 'https://www.youtube.com/watch?v=sXUl4Me4_9A',
     category: 'solos-6-10',
-    tags: ['p26', 'p27', 'solo #7', 'duet', '5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle', 'rolls', 'paradiddles'],
+    tags: ['p26', 'p27', 'solo #7', 'duet'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'duet',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Paradiddle'],
-    rudimentFamilies: ['rolls', 'paradiddles'],
-    description: 'Solo #7 performed as a duet with both parts together.',
-    pageNumber: 26,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '13 Stroke Roll', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Paradiddle'],
+    rudimentFamilies: ['rolls', 'flams', 'paradiddles'],
+    description: 'Solo #7 performed as a duet with both parts.',
+    pageNumber: 26
   },
 
-  // SOLO #8 PART 1 VIDEOS (Page 28)
+  // SOLO #8 VIDEOS (Pages 28-29)
+  // SOLO #8 PART 1 VIDEOS
   {
     id: 'solo8-part1-50-counting',
     title: 'Solo #8 Part 1 - 50 BPM with Counting',
     youtubeId: 'cP_miysb49g',
     url: 'https://www.youtube.com/watch?v=cP_miysb49g',
     category: 'solos-6-10',
-    tags: ['p28', 'solo #8', 'part 1', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'solo #8'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
-    description: 'Solo #8 Part 1 performed at learning tempo with counting.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
+    description: 'Solo #8 Part 1 with counting for timing development.',
+    pageNumber: 28
   },
   {
     id: 'solo8-part1-50',
@@ -535,16 +508,15 @@ const solos6to10Videos = [
     youtubeId: 'MOOVUoNM_Zo',
     url: 'https://www.youtube.com/watch?v=MOOVUoNM_Zo',
     category: 'solos-6-10',
-    tags: ['p28', 'solo #8', 'part 1', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'solo #8'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 1 at learning tempo.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    pageNumber: 28
   },
   {
     id: 'solo8-part1-60',
@@ -552,16 +524,15 @@ const solos6to10Videos = [
     youtubeId: 'rcQnzdpGc68',
     url: 'https://www.youtube.com/watch?v=rcQnzdpGc68',
     category: 'solos-6-10',
-    tags: ['p28', 'solo #8', 'part 1', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'solo #8'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 1 at moderate practice tempo.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    pageNumber: 28
   },
   {
     id: 'solo8-part1-70',
@@ -569,16 +540,15 @@ const solos6to10Videos = [
     youtubeId: '9Lf6-o9QX18',
     url: 'https://www.youtube.com/watch?v=9Lf6-o9QX18',
     category: 'solos-6-10',
-    tags: ['p28', 'solo #8', 'part 1', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'solo #8'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 1 at intermediate practice tempo.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    pageNumber: 28
   },
   {
     id: 'solo8-part1-80',
@@ -586,16 +556,15 @@ const solos6to10Videos = [
     youtubeId: 'mm5aChxtNQU',
     url: 'https://www.youtube.com/watch?v=mm5aChxtNQU',
     category: 'solos-6-10',
-    tags: ['p28', 'solo #8', 'part 1', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'solo #8'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 1 at advanced practice tempo.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    pageNumber: 28
   },
   {
     id: 'solo8-part1-90',
@@ -603,16 +572,15 @@ const solos6to10Videos = [
     youtubeId: 'ZYvv0TpCu0w',
     url: 'https://www.youtube.com/watch?v=ZYvv0TpCu0w',
     category: 'solos-6-10',
-    tags: ['p28', 'solo #8', 'part 1', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'solo #8'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 1 approaching performance tempo.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    pageNumber: 28
   },
   {
     id: 'solo8-part1-100',
@@ -620,35 +588,33 @@ const solos6to10Videos = [
     youtubeId: '7GtoqzXpwno',
     url: 'https://www.youtube.com/watch?v=7GtoqzXpwno',
     category: 'solos-6-10',
-    tags: ['p28', 'solo #8', 'part 1', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'solo #8'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 1 at performance tempo.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    pageNumber: 28
   },
 
-  // SOLO #8 PART 2 VIDEOS (Page 29)
+  // SOLO #8 PART 2 VIDEOS
   {
     id: 'solo8-part2-50-counting',
     title: 'Solo #8 Part 2 - 50 BPM with Counting',
     youtubeId: 'NmvTV8aASME',
     url: 'https://www.youtube.com/watch?v=NmvTV8aASME',
     category: 'solos-6-10',
-    tags: ['p29', 'solo #8', 'part 2', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'flams', 'drags'],
+    tags: ['p29', 'solo #8'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 2',
-    rudiments: ['Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['flams', 'drags'],
+    rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 2 with counting for timing development.',
-    pageNumber: 29,
-    author: 'Jeff Asselin'
+    pageNumber: 29
   },
   {
     id: 'solo8-part2-50',
@@ -656,16 +622,15 @@ const solos6to10Videos = [
     youtubeId: 'vyffgzlfr7w',
     url: 'https://www.youtube.com/watch?v=vyffgzlfr7w',
     category: 'solos-6-10',
-    tags: ['p29', 'solo #8', 'part 2', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'flams', 'drags'],
+    tags: ['p29', 'solo #8'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['flams', 'drags'],
+    rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 2 at learning tempo.',
-    pageNumber: 29,
-    author: 'Jeff Asselin'
+    pageNumber: 29
   },
   {
     id: 'solo8-part2-60',
@@ -673,16 +638,15 @@ const solos6to10Videos = [
     youtubeId: 'Ux62n-0Kh00',
     url: 'https://www.youtube.com/watch?v=Ux62n-0Kh00',
     category: 'solos-6-10',
-    tags: ['p29', 'solo #8', 'part 2', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'flams', 'drags'],
+    tags: ['p29', 'solo #8'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['flams', 'drags'],
+    rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 2 at moderate practice tempo.',
-    pageNumber: 29,
-    author: 'Jeff Asselin'
+    pageNumber: 29
   },
   {
     id: 'solo8-part2-70',
@@ -690,16 +654,15 @@ const solos6to10Videos = [
     youtubeId: 'G1ryxE_zxak',
     url: 'https://www.youtube.com/watch?v=G1ryxE_zxak',
     category: 'solos-6-10',
-    tags: ['p29', 'solo #8', 'part 2', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'flams', 'drags'],
+    tags: ['p29', 'solo #8'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['flams', 'drags'],
+    rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 2 at intermediate practice tempo.',
-    pageNumber: 29,
-    author: 'Jeff Asselin'
+    pageNumber: 29
   },
   {
     id: 'solo8-part2-80',
@@ -707,16 +670,15 @@ const solos6to10Videos = [
     youtubeId: 'ZnxDIfVN4gg',
     url: 'https://www.youtube.com/watch?v=ZnxDIfVN4gg',
     category: 'solos-6-10',
-    tags: ['p29', 'solo #8', 'part 2', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'flams', 'drags'],
+    tags: ['p29', 'solo #8'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['flams', 'drags'],
+    rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 2 at advanced practice tempo.',
-    pageNumber: 29,
-    author: 'Jeff Asselin'
+    pageNumber: 29
   },
   {
     id: 'solo8-part2-90',
@@ -724,16 +686,15 @@ const solos6to10Videos = [
     youtubeId: 's5F6LNpT1BU',
     url: 'https://www.youtube.com/watch?v=s5F6LNpT1BU',
     category: 'solos-6-10',
-    tags: ['p29', 'solo #8', 'part 2', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'flams', 'drags'],
+    tags: ['p29', 'solo #8'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['flams', 'drags'],
+    rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 2 approaching performance tempo.',
-    pageNumber: 29,
-    author: 'Jeff Asselin'
+    pageNumber: 29
   },
   {
     id: 'solo8-part2-100',
@@ -741,54 +702,52 @@ const solos6to10Videos = [
     youtubeId: 'w622dLYFtpQ',
     url: 'https://www.youtube.com/watch?v=w622dLYFtpQ',
     category: 'solos-6-10',
-    tags: ['p29', 'solo #8', 'part 2', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'flams', 'drags'],
+    tags: ['p29', 'solo #8'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 2',
-    rudiments: ['Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['flams', 'drags'],
+    rudiments: ['Drag', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['drags', 'flams', 'strokes'],
     description: 'Solo #8 Part 2 at performance tempo.',
-    pageNumber: 29,
-    author: 'Jeff Asselin'
+    pageNumber: 29
   },
 
   // SOLO #8 DUET
   {
-    id: 'solo8-duet-100',
-    title: 'Solo #8 Part 1 and Part 2 - 100 BPM Duet',
+    id: 'solo8-duet',
+    title: 'Solo #8 Part 1 and Part 2 - 100 BPM',
     youtubeId: 'G_n7EzOCf-o',
     url: 'https://www.youtube.com/watch?v=G_n7EzOCf-o',
     category: 'solos-6-10',
-    tags: ['p28', 'p29', 'solo #8', 'duet', '5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag', 'rolls', 'flams', 'drags'],
+    tags: ['p28', 'p29', 'solo #8', 'duet'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'duet',
-    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Drag'],
-    rudimentFamilies: ['rolls', 'flams', 'drags'],
-    description: 'Solo #8 performed as a duet with both parts together.',
-    pageNumber: 28,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '7 Stroke Roll', '9 Stroke Roll', '17 Stroke Roll', 'Drag', 'Drag Paradiddle (Flam added)', 'Flam', 'Flam Accent', 'Flam Paradiddle', 'Flam Tap', 'Flamacue', 'Lesson 25', 'Single Stroke 4'],
+    rudimentFamilies: ['rolls', 'drags', 'flams', 'strokes'],
+    description: 'Solo #8 performed as a duet with both parts.',
+    pageNumber: 28
   },
 
-  // SOLO #9 PART 1 VIDEOS (Page 30)
+  // SOLO #9 VIDEOS (Pages 30-31)
+  // SOLO #9 PART 1 VIDEOS
   {
     id: 'solo9-part1-50-counting',
     title: 'Solo #9 Part 1 - 50 BPM with Counting',
     youtubeId: 'EnbTDe9r0s4',
     url: 'https://www.youtube.com/watch?v=EnbTDe9r0s4',
     category: 'solos-6-10',
-    tags: ['p30', 'solo #9', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'drags', 'ratamacues'],
+    tags: ['p30', 'solo #9'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'drags', 'ratamacues', 'advanced'],
-    description: 'Solo #9 Part 1 performed at learning tempo with counting.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
+    description: 'Solo #9 Part 1 with counting for timing development.',
+    pageNumber: 30
   },
   {
     id: 'solo9-part1-50',
@@ -796,16 +755,15 @@ const solos6to10Videos = [
     youtubeId: 'Mx4rT-px5DU',
     url: 'https://www.youtube.com/watch?v=Mx4rT-px5DU',
     category: 'solos-6-10',
-    tags: ['p30', 'solo #9', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'drags', 'ratamacues'],
+    tags: ['p30', 'solo #9'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'drags', 'ratamacues', 'advanced'],
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
     description: 'Solo #9 Part 1 at learning tempo.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    pageNumber: 30
   },
   {
     id: 'solo9-part1-60',
@@ -813,16 +771,15 @@ const solos6to10Videos = [
     youtubeId: 'jkgEDtc93Pw',
     url: 'https://www.youtube.com/watch?v=jkgEDtc93Pw',
     category: 'solos-6-10',
-    tags: ['p30', 'solo #9', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'drags', 'ratamacues'],
+    tags: ['p30', 'solo #9'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'drags', 'ratamacues', 'advanced'],
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
     description: 'Solo #9 Part 1 at moderate practice tempo.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    pageNumber: 30
   },
   {
     id: 'solo9-part1-70',
@@ -830,16 +787,15 @@ const solos6to10Videos = [
     youtubeId: '--VFAwQk7MI',
     url: 'https://www.youtube.com/watch?v=--VFAwQk7MI',
     category: 'solos-6-10',
-    tags: ['p30', 'solo #9', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'drags', 'ratamacues'],
+    tags: ['p30', 'solo #9'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'drags', 'ratamacues', 'advanced'],
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
     description: 'Solo #9 Part 1 at intermediate practice tempo.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    pageNumber: 30
   },
   {
     id: 'solo9-part1-80',
@@ -847,16 +803,15 @@ const solos6to10Videos = [
     youtubeId: 'Wcl2Y3sSKi0',
     url: 'https://www.youtube.com/watch?v=Wcl2Y3sSKi0',
     category: 'solos-6-10',
-    tags: ['p30', 'solo #9', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'drags', 'ratamacues'],
+    tags: ['p30', 'solo #9'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'drags', 'ratamacues', 'advanced'],
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
     description: 'Solo #9 Part 1 at advanced practice tempo.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    pageNumber: 30
   },
   {
     id: 'solo9-part1-90',
@@ -864,16 +819,15 @@ const solos6to10Videos = [
     youtubeId: '0jCRhVK-ZLo',
     url: 'https://www.youtube.com/watch?v=0jCRhVK-ZLo',
     category: 'solos-6-10',
-    tags: ['p30', 'solo #9', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'drags', 'ratamacues'],
+    tags: ['p30', 'solo #9'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'drags', 'ratamacues', 'advanced'],
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
     description: 'Solo #9 Part 1 approaching performance tempo.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    pageNumber: 30
   },
   {
     id: 'solo9-part1-100',
@@ -881,35 +835,33 @@ const solos6to10Videos = [
     youtubeId: '4_9IitltnWE',
     url: 'https://www.youtube.com/watch?v=4_9IitltnWE',
     category: 'solos-6-10',
-    tags: ['p30', 'solo #9', 'part 1', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'drags', 'ratamacues'],
+    tags: ['p30', 'solo #9'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 1',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'drags', 'ratamacues', 'advanced'],
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
     description: 'Solo #9 Part 1 at performance tempo.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    pageNumber: 30
   },
 
-  // SOLO #9 PART 2 VIDEOS (Page 31)
+  // SOLO #9 PART 2 VIDEOS
   {
     id: 'solo9-part2-50-counting',
     title: 'Solo #9 Part 2 - 50 BPM with Counting',
     youtubeId: 'wGFH4IGCOuA',
     url: 'https://www.youtube.com/watch?v=wGFH4IGCOuA',
     category: 'solos-6-10',
-    tags: ['p31', 'solo #9', 'part 2', 'Flam', 'Flam Paradiddle', 'Swiss Army Triplet', 'flams', 'paradiddles', 'advanced'],
+    tags: ['p31', 'solo #9'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 2',
     rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
-    rudimentFamilies: ['flams', 'paradiddles', 'advanced'],
+    rudimentFamilies: ['flams', 'advanced'],
     description: 'Solo #9 Part 2 with counting for timing development.',
-    pageNumber: 31,
-    author: 'Jeff Asselin'
+    pageNumber: 31
   },
   {
     id: 'solo9-part2-50',
@@ -917,16 +869,15 @@ const solos6to10Videos = [
     youtubeId: 'sga9laMGa44',
     url: 'https://www.youtube.com/watch?v=sga9laMGa44',
     category: 'solos-6-10',
-    tags: ['p31', 'solo #9', 'part 2', 'Flam', 'Flam Paradiddle', 'Swiss Army Triplet', 'flams', 'paradiddles', 'advanced'],
+    tags: ['p31', 'solo #9'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 2',
     rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
-    rudimentFamilies: ['flams', 'paradiddles', 'advanced'],
+    rudimentFamilies: ['flams', 'advanced'],
     description: 'Solo #9 Part 2 at learning tempo.',
-    pageNumber: 31,
-    author: 'Jeff Asselin'
+    pageNumber: 31
   },
   {
     id: 'solo9-part2-60',
@@ -934,16 +885,15 @@ const solos6to10Videos = [
     youtubeId: 'Tv5FsXhKoL8',
     url: 'https://www.youtube.com/watch?v=Tv5FsXhKoL8',
     category: 'solos-6-10',
-    tags: ['p31', 'solo #9', 'part 2', 'Flam', 'Flam Paradiddle', 'Swiss Army Triplet', 'flams', 'paradiddles', 'advanced'],
+    tags: ['p31', 'solo #9'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
     rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
-    rudimentFamilies: ['flams', 'paradiddles', 'advanced'],
+    rudimentFamilies: ['flams', 'advanced'],
     description: 'Solo #9 Part 2 at moderate practice tempo.',
-    pageNumber: 31,
-    author: 'Jeff Asselin'
+    pageNumber: 31
   },
   {
     id: 'solo9-part2-70',
@@ -951,16 +901,15 @@ const solos6to10Videos = [
     youtubeId: 'ulRvhM9A2Vg',
     url: 'https://www.youtube.com/watch?v=ulRvhM9A2Vg',
     category: 'solos-6-10',
-    tags: ['p31', 'solo #9', 'part 2', 'Flam', 'Flam Paradiddle', 'Swiss Army Triplet', 'flams', 'paradiddles', 'advanced'],
+    tags: ['p31', 'solo #9'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
     rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
-    rudimentFamilies: ['flams', 'paradiddles', 'advanced'],
+    rudimentFamilies: ['flams', 'advanced'],
     description: 'Solo #9 Part 2 at intermediate practice tempo.',
-    pageNumber: 31,
-    author: 'Jeff Asselin'
+    pageNumber: 31
   },
   {
     id: 'solo9-part2-80',
@@ -968,16 +917,15 @@ const solos6to10Videos = [
     youtubeId: 'WxHxNlNsgVA',
     url: 'https://www.youtube.com/watch?v=WxHxNlNsgVA',
     category: 'solos-6-10',
-    tags: ['p31', 'solo #9', 'part 2', 'Flam', 'Flam Paradiddle', 'Swiss Army Triplet', 'flams', 'paradiddles', 'advanced'],
+    tags: ['p31', 'solo #9'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
     rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
-    rudimentFamilies: ['flams', 'paradiddles', 'advanced'],
+    rudimentFamilies: ['flams', 'advanced'],
     description: 'Solo #9 Part 2 at advanced practice tempo.',
-    pageNumber: 31,
-    author: 'Jeff Asselin'
+    pageNumber: 31
   },
   {
     id: 'solo9-part2-90',
@@ -985,16 +933,15 @@ const solos6to10Videos = [
     youtubeId: 'g7eUlXkhKhs',
     url: 'https://www.youtube.com/watch?v=g7eUlXkhKhs',
     category: 'solos-6-10',
-    tags: ['p31', 'solo #9', 'part 2', 'Flam', 'Flam Paradiddle', 'Swiss Army Triplet', 'flams', 'paradiddles', 'advanced'],
+    tags: ['p31', 'solo #9'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
     rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
-    rudimentFamilies: ['flams', 'paradiddles', 'advanced'],
+    rudimentFamilies: ['flams', 'advanced'],
     description: 'Solo #9 Part 2 approaching performance tempo.',
-    pageNumber: 31,
-    author: 'Jeff Asselin'
+    pageNumber: 31
   },
   {
     id: 'solo9-part2-100',
@@ -1002,54 +949,52 @@ const solos6to10Videos = [
     youtubeId: 'w2Sa4yK7z6U',
     url: 'https://www.youtube.com/watch?v=w2Sa4yK7z6U',
     category: 'solos-6-10',
-    tags: ['p31', 'solo #9', 'part 2', 'Flam', 'Flam Paradiddle', 'Swiss Army Triplet', 'flams', 'paradiddles', 'advanced'],
+    tags: ['p31', 'solo #9'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 2',
     rudiments: ['Flam', 'Flam Paradiddle', 'Swiss Army Triplet'],
-    rudimentFamilies: ['flams', 'paradiddles', 'advanced'],
+    rudimentFamilies: ['flams', 'advanced'],
     description: 'Solo #9 Part 2 at performance tempo.',
-    pageNumber: 31,
-    author: 'Jeff Asselin'
+    pageNumber: 31
   },
 
   // SOLO #9 DUET
   {
-    id: 'solo9-duet-100',
-    title: 'Solo #9 Part 1 and Part 2 - 100 BPM Duet',
+    id: 'solo9-duet',
+    title: 'Solo #9 Part 1 and Part 2 - 100 BPM',
     youtubeId: '8UFPCWx6y3s',
     url: 'https://www.youtube.com/watch?v=8UFPCWx6y3s',
     category: 'solos-6-10',
-    tags: ['p30', 'p31', 'solo #9', 'duet', '5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet', 'rolls', 'flams', 'paradiddles', 'drags', 'ratamacues', 'advanced'],
+    tags: ['p30', 'p31', 'solo #9', 'duet'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'duet',
-    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Drag', 'Double Ratamacue', 'Single Ratamacue', 'Swiss Army Triplet'],
-    rudimentFamilies: ['rolls', 'flams', 'paradiddles', 'drags', 'ratamacues', 'advanced'],
-    description: 'Solo #9 performed as a duet with both parts together.',
-    pageNumber: 30,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '9 Stroke Roll', 'Double Ratamacue', 'Drag', 'Flam', 'Flam Paradiddle', 'Flam Tap', 'Single Ratamacue', 'Single Stroke 4', 'Swiss Army Triplet'],
+    rudimentFamilies: ['rolls', 'ratamacues', 'drags', 'flams', 'strokes', 'advanced'],
+    description: 'Solo #9 performed as a duet with both parts.',
+    pageNumber: 30
   },
 
-  // SOLO #10 PART 1 VIDEOS (Page 32)
+  // SOLO #10 VIDEOS (Pages 32-33)
+  // SOLO #10 PART 1 VIDEOS
   {
     id: 'solo10-part1-50-counting',
     title: 'Solo #10 Part 1 - 50 BPM with Counting',
     youtubeId: 'X8W4Gk4b92s',
     url: 'https://www.youtube.com/watch?v=X8W4Gk4b92s',
     category: 'solos-6-10',
-    tags: ['p32', 'solo #10', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'rolls', 'paradiddles', 'drags'],
+    tags: ['p32', 'solo #10'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 1',
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
     rudimentFamilies: ['rolls', 'paradiddles', 'drags'],
-    description: 'Solo #10 Part 1 performed at learning tempo with counting.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    description: 'Solo #10 Part 1 with counting for timing development.',
+    pageNumber: 32
   },
   {
     id: 'solo10-part1-50',
@@ -1057,7 +1002,7 @@ const solos6to10Videos = [
     youtubeId: 'roDrBZ7dK94',
     url: 'https://www.youtube.com/watch?v=roDrBZ7dK94',
     category: 'solos-6-10',
-    tags: ['p32', 'solo #10', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'rolls', 'paradiddles', 'drags'],
+    tags: ['p32', 'solo #10'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
@@ -1065,8 +1010,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
     rudimentFamilies: ['rolls', 'paradiddles', 'drags'],
     description: 'Solo #10 Part 1 at learning tempo.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    pageNumber: 32
   },
   {
     id: 'solo10-part1-60',
@@ -1074,7 +1018,7 @@ const solos6to10Videos = [
     youtubeId: 'Bir90Q9xT0c',
     url: 'https://www.youtube.com/watch?v=Bir90Q9xT0c',
     category: 'solos-6-10',
-    tags: ['p32', 'solo #10', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'rolls', 'paradiddles', 'drags'],
+    tags: ['p32', 'solo #10'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
@@ -1082,8 +1026,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
     rudimentFamilies: ['rolls', 'paradiddles', 'drags'],
     description: 'Solo #10 Part 1 at moderate practice tempo.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    pageNumber: 32
   },
   {
     id: 'solo10-part1-70',
@@ -1091,7 +1034,7 @@ const solos6to10Videos = [
     youtubeId: 'nnL66vIp4nk',
     url: 'https://www.youtube.com/watch?v=nnL66vIp4nk',
     category: 'solos-6-10',
-    tags: ['p32', 'solo #10', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'rolls', 'paradiddles', 'drags'],
+    tags: ['p32', 'solo #10'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
@@ -1099,8 +1042,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
     rudimentFamilies: ['rolls', 'paradiddles', 'drags'],
     description: 'Solo #10 Part 1 at intermediate practice tempo.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    pageNumber: 32
   },
   {
     id: 'solo10-part1-80',
@@ -1108,7 +1050,7 @@ const solos6to10Videos = [
     youtubeId: '5Y17TmyB3To',
     url: 'https://www.youtube.com/watch?v=5Y17TmyB3To',
     category: 'solos-6-10',
-    tags: ['p32', 'solo #10', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'rolls', 'paradiddles', 'drags'],
+    tags: ['p32', 'solo #10'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
@@ -1116,8 +1058,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
     rudimentFamilies: ['rolls', 'paradiddles', 'drags'],
     description: 'Solo #10 Part 1 at advanced practice tempo.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    pageNumber: 32
   },
   {
     id: 'solo10-part1-90',
@@ -1125,7 +1066,7 @@ const solos6to10Videos = [
     youtubeId: 'sUXyrUiAtzY',
     url: 'https://www.youtube.com/watch?v=sUXyrUiAtzY',
     category: 'solos-6-10',
-    tags: ['p32', 'solo #10', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'rolls', 'paradiddles', 'drags'],
+    tags: ['p32', 'solo #10'],
     tempo: 90,
     tempoCategory: '80-90',
     type: 'practice tempo',
@@ -1133,8 +1074,7 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
     rudimentFamilies: ['rolls', 'paradiddles', 'drags'],
     description: 'Solo #10 Part 1 approaching performance tempo.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    pageNumber: 32
   },
   {
     id: 'solo10-part1-100',
@@ -1142,7 +1082,7 @@ const solos6to10Videos = [
     youtubeId: 'FdlcTGCXXKA',
     url: 'https://www.youtube.com/watch?v=FdlcTGCXXKA',
     category: 'solos-6-10',
-    tags: ['p32', 'solo #10', 'part 1', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'rolls', 'paradiddles', 'drags'],
+    tags: ['p32', 'solo #10'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
@@ -1150,27 +1090,25 @@ const solos6to10Videos = [
     rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle'],
     rudimentFamilies: ['rolls', 'paradiddles', 'drags'],
     description: 'Solo #10 Part 1 at performance tempo.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    pageNumber: 32
   },
 
-  // SOLO #10 PART 2 VIDEOS (Page 33)
+  // SOLO #10 PART 2 VIDEOS
   {
     id: 'solo10-part2-50-counting',
     title: 'Solo #10 Part 2 - 50 BPM with Counting',
     youtubeId: 'yoH4JOob1JI',
     url: 'https://www.youtube.com/watch?v=yoH4JOob1JI',
     category: 'solos-6-10',
-    tags: ['p33', 'solo #10', 'part 2', 'Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap', 'paradiddles', 'flams', 'drags'],
+    tags: ['p33', 'solo #10'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'with counting',
     partType: 'part 2',
-    rudiments: ['Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap'],
-    rudimentFamilies: ['paradiddles', 'flams', 'drags'],
+    rudiments: ['Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Single Drag Tap'],
+    rudimentFamilies: ['paradiddles', 'drags', 'flams'],
     description: 'Solo #10 Part 2 with counting for timing development.',
-    pageNumber: 33,
-    author: 'Jeff Asselin'
+    pageNumber: 33
   },
   {
     id: 'solo10-part2-50',
@@ -1178,16 +1116,15 @@ const solos6to10Videos = [
     youtubeId: '268WM0KxbYQ',
     url: 'https://www.youtube.com/watch?v=268WM0KxbYQ',
     category: 'solos-6-10',
-    tags: ['p33', 'solo #10', 'part 2', 'Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap', 'paradiddles', 'flams', 'drags'],
+    tags: ['p33', 'solo #10'],
     tempo: 50,
     tempoCategory: '40-50',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap'],
-    rudimentFamilies: ['paradiddles', 'flams', 'drags'],
+    rudiments: ['Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Single Drag Tap'],
+    rudimentFamilies: ['paradiddles', 'drags', 'flams'],
     description: 'Solo #10 Part 2 at learning tempo.',
-    pageNumber: 33,
-    author: 'Jeff Asselin'
+    pageNumber: 33
   },
   {
     id: 'solo10-part2-60',
@@ -1195,16 +1132,15 @@ const solos6to10Videos = [
     youtubeId: '9ZvaZNxXlSQ',
     url: 'https://www.youtube.com/watch?v=9ZvaZNxXlSQ',
     category: 'solos-6-10',
-    tags: ['p33', 'solo #10', 'part 2', 'Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap', 'paradiddles', 'flams', 'drags'],
+    tags: ['p33', 'solo #10'],
     tempo: 60,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap'],
-    rudimentFamilies: ['paradiddles', 'flams', 'drags'],
+    rudiments: ['Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Single Drag Tap'],
+    rudimentFamilies: ['paradiddles', 'drags', 'flams'],
     description: 'Solo #10 Part 2 at moderate practice tempo.',
-    pageNumber: 33,
-    author: 'Jeff Asselin'
+    pageNumber: 33
   },
   {
     id: 'solo10-part2-70',
@@ -1212,16 +1148,15 @@ const solos6to10Videos = [
     youtubeId: 'uCyURqwCYOw',
     url: 'https://www.youtube.com/watch?v=uCyURqwCYOw',
     category: 'solos-6-10',
-    tags: ['p33', 'solo #10', 'part 2', 'Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap', 'paradiddles', 'flams', 'drags'],
+    tags: ['p33', 'solo #10'],
     tempo: 70,
     tempoCategory: '60-70',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap'],
-    rudimentFamilies: ['paradiddles', 'flams', 'drags'],
+    rudiments: ['Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Single Drag Tap'],
+    rudimentFamilies: ['paradiddles', 'drags', 'flams'],
     description: 'Solo #10 Part 2 at intermediate practice tempo.',
-    pageNumber: 33,
-    author: 'Jeff Asselin'
+    pageNumber: 33
   },
   {
     id: 'solo10-part2-80',
@@ -1229,16 +1164,15 @@ const solos6to10Videos = [
     youtubeId: 'G8pVbczvJF4',
     url: 'https://www.youtube.com/watch?v=G8pVbczvJF4',
     category: 'solos-6-10',
-    tags: ['p33', 'solo #10', 'part 2', 'Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap', 'paradiddles', 'flams', 'drags'],
+    tags: ['p33', 'solo #10'],
     tempo: 80,
     tempoCategory: '80-90',
     type: 'practice tempo',
     partType: 'part 2',
-    rudiments: ['Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap'],
-    rudimentFamilies: ['paradiddles', 'flams', 'drags'],
+    rudiments: ['Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Single Drag Tap'],
+    rudimentFamilies: ['paradiddles', 'drags', 'flams'],
     description: 'Solo #10 Part 2 at advanced practice tempo.',
-    pageNumber: 33,
-    author: 'Jeff Asselin'
+    pageNumber: 33
   },
   {
     id: 'solo10-part2-100',
@@ -1246,35 +1180,33 @@ const solos6to10Videos = [
     youtubeId: 'CLNvysvo_Us',
     url: 'https://www.youtube.com/watch?v=CLNvysvo_Us',
     category: 'solos-6-10',
-    tags: ['p33', 'solo #10', 'part 2', 'Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap', 'paradiddles', 'flams', 'drags'],
+    tags: ['p33', 'solo #10'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'part 2',
-    rudiments: ['Double Paradiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap'],
-    rudimentFamilies: ['paradiddles', 'flams', 'drags'],
+    rudiments: ['Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Single Drag Tap'],
+    rudimentFamilies: ['paradiddles', 'drags', 'flams'],
     description: 'Solo #10 Part 2 at performance tempo.',
-    pageNumber: 33,
-    author: 'Jeff Asselin'
+    pageNumber: 33
   },
 
   // SOLO #10 DUET
   {
-    id: 'solo10-duet-100',
-    title: 'Solo #10 Part 1 and Part 2 - 100 BPM Duet',
+    id: 'solo10-duet',
+    title: 'Solo #10 Part 1 and Part 2 - 100 BPM',
     youtubeId: 'H-_RVoSXndc',
     url: 'https://www.youtube.com/watch?v=H-_RVoSXndc',
     category: 'solos-6-10',
-    tags: ['p32', 'p33', 'solo #10', 'duet', '5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap', 'rolls', 'paradiddles', 'flams', 'drags'],
+    tags: ['p32', 'p33', 'solo #10', 'duet'],
     tempo: 100,
     tempoCategory: '100+',
     type: 'performance tempo',
     partType: 'duet',
-    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Paradiddle', 'Single Dragadiddle', 'Flam Paradiddle', 'Drag', 'Single Drag Tap'],
-    rudimentFamilies: ['rolls', 'paradiddles', 'flams', 'drags'],
-    description: 'Solo #10 performed as a duet with both parts together.',
-    pageNumber: 32,
-    author: 'Jeff Asselin'
+    rudiments: ['5 Stroke Roll', '6 Stroke Roll', '9 Stroke Roll', 'Double Paradiddle', 'Drag', 'Flam Paradiddle', 'Paradiddle', 'Single Drag Tap', 'Single Dragadiddle'],
+    rudimentFamilies: ['rolls', 'paradiddles', 'drags', 'flams'],
+    description: 'Solo #10 performed as a duet with both parts.',
+    pageNumber: 32
   }
 ];
 
