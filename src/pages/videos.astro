@@ -1,8 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import SongFolder from '../components/SongFolder.astro';
 import { videos, videoCategories, tempoCategories, partTypes, videoTypes, rudimentFamilies, rudimentTypes } from '../data/videos.js';
 import { tagCollections } from '../data/tag-system.js';
+
+// Group videos by individual song for folder organization
+const videosBySong: Record<string, any[]> = {};
+
+videos.forEach((video: any) => {
+  // Extract song name from tags (look for patterns like "solo #1", "solo #2", etc.)
+  const songTag = video.tags?.find((tag: string) => tag.toLowerCase().match(/solo #\d+/));
+  
+  if (songTag) {
+    const songName = songTag.charAt(0).toUpperCase() + songTag.slice(1); // Capitalize first letter
+    
+    if (!videosBySong[songName]) {
+      videosBySong[songName] = [];
+    }
+    videosBySong[songName].push(video);
+  }
+});
+
+// Sort songs by number (Solo #1, Solo #2, etc.)
+const sortedSongNames = Object.keys(videosBySong).sort((a, b) => {
+  const aNum = parseInt(a.match(/\d+/)?.[0] || '0');
+  const bNum = parseInt(b.match(/\d+/)?.[0] || '0');
+  return aNum - bNum;
+});
+
+// Helper function to get song display name
+function getSongDisplayName(songName: string): string {
+  return songName;
+}
 ---
 
 <Layout title="Video Library - The Rudimental Blueprint">
@@ -10,8 +40,8 @@ import { tagCollections } from '../data/tag-system.js';
   
   <section class="videos">
     <div class="videos-container">
-      <h1 class="videos-title">Video Library</h1>
-      <p class="videos-subtitle">600+ instructional videos to master Chuck Burrows' method</p>
+      <h1 class="header-style-blue">Video Library</h1>
+      <p class="videos-subtitle">600+ instructional videos organized by category - click folders to explore</p>
       
       <!-- Comprehensive tag-based filtering system -->
       <div class="filter-section">
@@ -91,68 +121,19 @@ import { tagCollections } from '../data/tag-system.js';
         />
       </div>
       
-      <!-- Video grid -->
-      <div class="video-grid" id="videoGrid">
-        {videos.map(video => {
-          // Map partType values to filter IDs for proper filtering
-          const partTypeMap = {
-            'part 1': 'part-1',
-            'part 2': 'part-2', 
-            'duet': 'duet',
-            'standalone': 'standalone'
-          };
-          const mappedPartType = partTypeMap[video.partType] || video.partType;
-
-          // Map video type values to filter IDs for proper filtering
-          const videoTypeMap = {
-            'with counting': 'with-counting',
-            'practice tempo': 'practice-tempo',
-            'performance tempo': 'performance-tempo'
-          };
-          const mappedVideoType = videoTypeMap[video.type] || video.type;
-
+      <!-- Song Folders -->
+      <div class="folders-container">
+        {sortedSongNames.map((songName: string) => {
+          const songVideos = videosBySong[songName];
+          if (songVideos.length === 0) return null;
+          
           return (
-          <div class="video-card" 
-               data-category={video.category}
-               data-type={mappedVideoType}
-               data-tempo={video.tempoCategory}
-               data-part-type={mappedPartType}
-               data-rudiments={video.rudiments ? video.rudiments.join(',') : ''}
-               data-rudiment-families={video.rudimentFamilies ? video.rudimentFamilies.join(',') : ''}
-               data-tags={video.tags ? video.tags.join(',') : ''}>
-            <div class="video-thumbnail">
-              <img 
-                src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
-                alt={video.title}
-                class="thumbnail-image"
-                onerror="handleThumbnailError(this)"
-              />
-              <div class="play-overlay">
-                <button class="play-btn" data-youtube-id={video.youtubeId} data-video-title={video.title}>
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            
-            <div class="video-info">
-              <h3 class="video-title">{video.title}</h3>
-              <p class="video-description">{video.description}</p>
-              <div class="video-meta">
-                <span class="tempo">{video.tempo} BPM</span>
-                <span class="page">Page {video.pageNumber}</span>
-                <span class="video-type">{video.type === 'with counting' ? 'With Counting' : video.type === 'practice tempo' ? 'Practice Tempo' : 'Performance Tempo'}</span>
-                {video.partType && <span class="part-type">{video.partType}</span>}
-              </div>
-              <div class="video-rudiments">
-                {video.rudiments && video.rudiments.slice(0, 3).map((rudiment: any) => (
-                  <span class="rudiment-tag">{rudiment}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-          )
+            <SongFolder 
+              songName={getSongDisplayName(songName)}
+              videos={songVideos}
+              isExpanded={false}
+            />
+          );
         })}
       </div>
     </div>
@@ -186,7 +167,7 @@ import { tagCollections } from '../data/tag-system.js';
 
   <script>
     // Handle thumbnail fallbacks
-    function handleThumbnailError(img) {
+    function handleThumbnailError(img: any) {
       const youtubeId = img.src.split('/')[4];
       const fallbacks = ['hqdefault.jpg', 'sddefault.jpg', 'mqdefault.jpg', 'default.jpg', '0.jpg'];
       
@@ -205,14 +186,69 @@ import { tagCollections } from '../data/tag-system.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       const searchInput = document.getElementById('search') as HTMLInputElement;
-      const videoCards = document.querySelectorAll('.video-card') as NodeListOf<HTMLElement>;
       const modal = document.getElementById('videoModal') as HTMLElement;
       const modalBackdrop = document.getElementById('modalBackdrop') as HTMLElement;
       const modalClose = document.getElementById('modalClose') as HTMLElement;
-      const modalTitle = document.getElementById('modalTitle') as HTMLElement;
+      const modalTitle = document.getElementById('modalTitle') as HTMLElement;  
       const videoFrame = document.getElementById('videoFrame') as HTMLIFrameElement;
       const clearFiltersBtn = document.getElementById('clearFilters') as HTMLElement;
       const activeFiltersDiv = document.getElementById('activeFilters') as HTMLElement;
+      
+      // Folder expand/collapse functionality
+      function toggleFolder(folderCard: Element) {
+        const videosContainer = folderCard.parentElement?.querySelector('.videos-container');
+        
+        if (videosContainer) {
+          const isExpanded = folderCard.getAttribute('data-expanded') === 'true';
+          const newState = !isExpanded;
+          
+          folderCard.setAttribute('data-expanded', newState.toString());
+          videosContainer.setAttribute('data-expanded', newState.toString());
+          
+          const expandBtn = folderCard.querySelector('.expand-btn');
+          const expandText = expandBtn?.querySelector('.expand-text');
+          if (expandText) {
+            expandText.textContent = newState ? 'Collapse' : 'Show Videos';
+          }
+        }
+      }
+      
+      // Handle folder clicks and video play buttons
+      document.addEventListener('click', function(e) {
+        const target = e.target as HTMLElement;
+        
+        // Handle expand button click
+        const expandBtn = target.closest('.expand-btn');
+        if (expandBtn) {
+          e.stopPropagation();
+          const folderCard = expandBtn.closest('.folder-card');
+          if (folderCard) {
+            toggleFolder(folderCard);
+          }
+          return;
+        }
+        
+        // Handle folder card click (but not if clicking on videos inside)
+        const folderCard = target.closest('.folder-card');
+        if (folderCard && !target.closest('.videos-container') && !target.closest('.expand-btn')) {
+          toggleFolder(folderCard);
+          return;
+        }
+        
+        // Handle video play
+        const playBtn = target.closest('.play-btn');
+        if (playBtn) {
+          const youtubeId = (playBtn as HTMLElement).dataset.youtubeId;
+          const videoTitle = (playBtn as HTMLElement).dataset.videoTitle;
+          
+          if (youtubeId && videoTitle && modal && modalTitle && videoFrame) {
+            modalTitle.textContent = videoTitle;
+            videoFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      });
       
       let activeFilters: Record<string, string> = {};
       
@@ -276,83 +312,109 @@ import { tagCollections } from '../data/tag-system.js';
       
       function filterVideos() {
         const searchTerm = searchInput?.value.toLowerCase() || '';
+        const songFolders = document.querySelectorAll('.song-folder');
         
-        videoCards.forEach(card => {
-          let showCard = true;
+        songFolders.forEach(folder => {
+          const videoCards = folder.querySelectorAll('.video-card');
+          let hasVisibleVideos = false;
           
-          // Apply search filter
-          if (searchTerm) {
-            const titleEl = card.querySelector('.video-title');
-            const descEl = card.querySelector('.video-description');
-            const title = titleEl?.textContent?.toLowerCase() || '';
-            const description = descEl?.textContent?.toLowerCase() || '';
-            const tags = card.dataset.tags?.toLowerCase() || '';
+          // Filter individual video cards within each folder
+          videoCards.forEach(card => {
+            let showCard = true;
             
-            if (!title.includes(searchTerm) && !description.includes(searchTerm) && !tags.includes(searchTerm)) {
+            // Apply search filter
+            if (searchTerm) {
+              const titleEl = card.querySelector('.video-title');
+              const descEl = card.querySelector('.video-description');
+              const title = titleEl?.textContent?.toLowerCase() || '';
+              const description = descEl?.textContent?.toLowerCase() || '';
+              const tags = (card as HTMLElement).dataset.tags?.toLowerCase() || '';
+              
+              if (!title.includes(searchTerm) && !description.includes(searchTerm) && !tags.includes(searchTerm)) {
+                showCard = false;
+              }
+            }
+            
+            // Apply category filter
+            if (activeFilters.category && (card as HTMLElement).dataset.category !== activeFilters.category) {
               showCard = false;
             }
-          }
+            
+            // Apply type filter (map UI values to data values)
+            if (activeFilters.type) {
+              const cardType = (card as HTMLElement).dataset.type;
+              let filterMatch = false;
+              
+              // Map filter values to actual data values
+              if (activeFilters.type === 'with-counting' && cardType === 'with counting') {
+                filterMatch = true;
+              } else if (activeFilters.type === 'practice-tempo' && cardType === 'practice tempo') {
+                filterMatch = true;
+              } else if (activeFilters.type === 'performance-tempo' && cardType === 'performance tempo') {
+                filterMatch = true;
+              }
+              
+              if (!filterMatch) {
+                showCard = false;
+              }
+            }
+            
+            // Apply tempo filter
+            if (activeFilters.tempo && (card as HTMLElement).dataset.tempo !== activeFilters.tempo) {
+              showCard = false;
+            }
+            
+            // Apply part type filter (map UI values to data values)
+            if (activeFilters.partType) {
+              const cardPartType = (card as HTMLElement).dataset.partType;
+              let filterMatch = false;
+              
+              // Map filter values to actual data values
+              if (activeFilters.partType === 'part-1' && cardPartType === 'part 1') {
+                filterMatch = true;
+              } else if (activeFilters.partType === 'part-2' && cardPartType === 'part 2') {
+                filterMatch = true;
+              } else if (activeFilters.partType === 'duet' && cardPartType === 'duet') {
+                filterMatch = true;
+              } else if (activeFilters.partType === 'standalone' && cardPartType === 'standalone') {
+                filterMatch = true;
+              }
+              
+              if (!filterMatch) {
+                showCard = false;
+              }
+            }
+            
+            // Apply rudiment filter
+            if (activeFilters.rudiment && !(card as HTMLElement).dataset.rudiments?.includes(activeFilters.rudiment)) {
+              showCard = false;
+            }
+            
+            // Apply rudiment family filter
+            if (activeFilters.rudimentFamily && !(card as HTMLElement).dataset.rudimentFamilies?.includes(activeFilters.rudimentFamily)) {
+              showCard = false;
+            }
+            
+            // Show/hide the video card
+            (card as HTMLElement).style.display = showCard ? 'block' : 'none';
+            
+            if (showCard) {
+              hasVisibleVideos = true;
+            }
+          });
           
-          // Apply category filter
-          if (activeFilters.category && card.dataset.category !== activeFilters.category) {
-            showCard = false;
-          }
-          
-          // Apply type filter
-          if (activeFilters.type && card.dataset.type !== activeFilters.type) {
-            showCard = false;
-          }
-          
-          // Apply tempo filter
-          if (activeFilters.tempo && card.dataset.tempo !== activeFilters.tempo) {
-            showCard = false;
-          }
-          
-          // Meter filter removed - these were just exercises at the beginning of the book
-          
-          // Apply part type filter
-          if (activeFilters.partType && card.dataset.partType !== activeFilters.partType) {
-            showCard = false;
-          }
-          
-          // Apply rudiment filter
-          if (activeFilters.rudiment && !card.dataset.rudiments?.includes(activeFilters.rudiment)) {
-            showCard = false;
-          }
-          
-          // Apply rudiment family filter
-          if (activeFilters.rudimentFamily && !card.dataset.rudimentFamilies?.includes(activeFilters.rudimentFamily)) {
-            showCard = false;
-          }
-          
-          (card as HTMLElement).style.display = showCard ? 'block' : 'none';
+          // Show/hide the entire folder based on whether it has visible videos
+          (folder as HTMLElement).style.display = hasVisibleVideos ? 'block' : 'none';
         });
-      }
-      
-      // Modal functionality
-      function openModal(youtubeId: string, title: string) {
-        if (modalTitle) modalTitle.textContent = title;
-        if (videoFrame) videoFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
-        if (modal) modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
       }
       
       function closeModal() {
-        if (modal) modal.classList.remove('active');
-        if (videoFrame) videoFrame.src = '';
-        document.body.style.overflow = '';
+        if (modal && videoFrame) {
+          modal.style.display = 'none';
+          videoFrame.src = '';
+          document.body.style.overflow = 'auto';
+        }
       }
-      
-      // Play button functionality
-      document.querySelectorAll('.play-btn').forEach(btn => {
-        btn.addEventListener('click', function(this: HTMLElement) {
-          const youtubeId = this.dataset.youtubeId;
-          const title = this.dataset.videoTitle;
-          if (youtubeId && title) {
-            openModal(youtubeId, title);
-          }
-        });
-      });
       
       // Close modal events
       modalClose?.addEventListener('click', closeModal);
@@ -360,7 +422,7 @@ import { tagCollections } from '../data/tag-system.js';
       
       // Escape key to close modal
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        if (e.key === 'Escape') {
           closeModal();
         }
       });
@@ -380,19 +442,9 @@ import { tagCollections } from '../data/tag-system.js';
     padding: 0 2rem;
   }
 
-  .videos-title {
-    font-size: clamp(2.8rem, 8vw, 5.5rem);
-    font-weight: 200;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
+  .header-style-blue {
     text-align: center;
     margin-bottom: 1rem;
-    /* Same silvery gradient as hero section */
-    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    overflow: visible;
   }
 
   .videos-subtitle {
@@ -517,6 +569,13 @@ import { tagCollections } from '../data/tag-system.js';
   .search-input:focus {
     outline: none;
     border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Folders Container */
+  .folders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .video-grid {

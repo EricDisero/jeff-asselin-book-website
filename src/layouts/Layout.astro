@@ -22,7 +22,7 @@ const { title } = Astro.props;
 		<!-- Font imports -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 		
 		<!-- Global Tailwind CSS -->
 		<style>
@@ -70,67 +70,149 @@ const { title } = Astro.props;
 				padding: 0;
 			}
 
-			/* Global Button Styles matching header button exactly */
+			/* Header Styles - Two Distinct Types */
+			
+			/* Style 1: Silvery Gradient (slightly thicker than before) */
+			.header-style-silver,
+			h1.header-style-silver,
+			span.header-style-silver {
+				font-size: clamp(2rem, 6vw, 3.5rem) !important;
+				font-weight: 300 !important; /* Slightly thicker than 200 */
+				line-height: 1.1 !important;
+				letter-spacing: -0.03em !important;
+				background: linear-gradient(135deg, #ffffff 0%, #888888 100%) !important;
+				-webkit-background-clip: text !important;
+				-webkit-text-fill-color: transparent !important;
+				background-clip: text !important;
+				margin: 0 !important;
+				overflow: visible !important;
+				color: transparent !important;
+			}
+
+			/* Style 2: Blue Gradient (thicker, #8cb0de bottom left to white top right) */
+			.header-style-blue,
+			h1.header-style-blue, 
+			span.header-style-blue {
+				font-size: clamp(1.8rem, 5vw, 3.2rem) !important;
+				font-weight: 700 !important; /* Much thicker/bolder */
+				line-height: 1.2 !important; /* Restored to prevent cut-off */
+				letter-spacing: -0.04em !important;
+				background: linear-gradient(135deg, #8cb0de 0%, #ffffff 100%) !important;
+				-webkit-background-clip: text !important;
+				-webkit-text-fill-color: transparent !important;
+				background-clip: text !important;
+				margin: 0 !important;
+				margin-top: -0.5rem !important; /* Negative margin to bring closer to line above */
+				overflow: visible !important;
+				color: transparent !important;
+			}
+
+			/* Extra specificity for hero title main */
+			.hero-title-main.header-style-blue {
+				font-size: clamp(2rem, 6vw, 3.8rem) !important;
+				font-weight: 800 !important;
+				line-height: 1.2 !important; /* Restored to prevent cut-off */
+				margin-top: -0.5rem !important; /* Negative margin to bring closer to line above */
+			}
+
+			/* Responsive adjustments for smaller screens */
+			@media (max-width: 768px) {
+				.header-style-silver,
+				h1.header-style-silver,
+				span.header-style-silver {
+					font-weight: 400 !important; /* Slightly bolder on mobile for readability */
+				}
+				
+				.header-style-blue,
+				h1.header-style-blue,
+				span.header-style-blue {
+					font-weight: 800 !important; /* Even bolder on mobile */
+				}
+			}
+
+			/* Global Button Styles - Beautiful Gradient Button */
 			.btn-primary {
-				position: relative;
-				background: transparent;
-				border: 2px solid rgba(255, 255, 255, 0.2);
-				color: #ffffff;
-				padding: 1rem 2rem;
-				border-radius: 10px;
+				padding: 16px 32px;
+				font-size: 18px;
 				font-weight: 600;
-				font-size: 1rem;
+				color: #333;
+				border: none;
+				border-radius: 12px;
 				cursor: pointer;
+				position: relative;
 				overflow: hidden;
-				transition: all 0.3s ease;
+				background: linear-gradient(135deg, #8cb0de 0%, #ffffff 100%);
+				box-shadow: 0 4px 15px rgba(140, 176, 222, 0.3);
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 				text-decoration: none;
-				display: inline-flex;
-				align-items: center;
-				gap: 0.75rem;
+				display: inline-block;
+				text-align: center;
+				letter-spacing: 0.5px;
 				outline: none;
+			}
+
+			.btn-primary::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(135deg, #8cb0de 0%, #ffffff 100%);
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				z-index: -1;
+			}
+
+			.btn-primary:hover {
+				transform: translateY(-2px) scale(1.02);
+				box-shadow: 
+					0 8px 25px rgba(140, 176, 222, 0.4),
+					0 0 20px rgba(140, 176, 222, 0.3),
+					inset 0 1px 0 rgba(255, 255, 255, 0.6);
+				background: linear-gradient(135deg, #9bc1e8 0%, #ffffff 100%);
+			}
+
+			.btn-primary:hover::before {
+				opacity: 1;
+			}
+
+			.btn-primary:active {
+				transform: translateY(0) scale(0.98);
+				transition: all 0.1s ease;
+			}
+
+			/* Subtle shimmer effect */
+			.btn-primary::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					90deg, 
+					transparent, 
+					rgba(255, 255, 255, 0.4), 
+					transparent
+				);
+				transition: left 0.6s ease;
+			}
+
+			.btn-primary:hover::after {
+				left: 100%;
 			}
 
 			.btn-primary span {
 				position: relative;
 				z-index: 2;
-				transition: color 0.3s ease;
-			}
-
-			.btn-primary .btn-bg {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: linear-gradient(135deg, #333333 0%, #222222 100%);
-				transform: scaleX(0);
-				transform-origin: left;
-				transition: transform 0.4s ease;
-				z-index: 1;
-			}
-
-			.btn-primary svg {
-				position: relative;
-				z-index: 2;
-			}
-
-			.btn-primary:hover {
-				border-color: rgba(255, 255, 255, 0.4);
-				transform: translateY(-2px);
-				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-			}
-
-			.btn-primary:hover .btn-bg {
-				transform: scaleX(1);
-			}
-
-			.btn-primary:active {
-				transform: translateY(0);
 			}
 
 			.btn-primary:focus {
-				border-color: rgba(255, 255, 255, 0.3);
 				outline: none;
+				box-shadow: 
+					0 4px 15px rgba(140, 176, 222, 0.3),
+					0 0 0 3px rgba(140, 176, 222, 0.4);
 			}
 
 			.btn-secondary {
@@ -217,33 +299,41 @@ const { title } = Astro.props;
 			button:focus,
 			a:focus,
 			input:focus {
-				outline: none;
+				outline: none !important;
+				box-shadow: none !important;
 			}
 
-			/* Custom focus states that don't flash */
-			button:focus-visible,
-			a:focus-visible {
-				outline: 2px solid rgba(255, 255, 255, 0.3);
-				outline-offset: 2px;
+			/* Global utility classes */
+			.text-gradient {
+				background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
 			}
 
-			/* Typography improvements */
-			h1, h2, h3, h4, h5, h6 {
-				line-height: 1.2;
-				font-weight: 600;
+			/* Smooth animations */
+			@keyframes fadeIn {
+				from { opacity: 0; }
+				to { opacity: 1; }
 			}
 
-			p {
-				line-height: 1.7;
-			}
-
-			/* Responsive text scaling */
-			@media (max-width: 768px) {
-				.btn-primary,
-				.btn-secondary {
-					padding: 0.875rem 1.5rem;
-					font-size: 0.95rem;
+			@keyframes slideUp {
+				from { 
+					opacity: 0; 
+					transform: translateY(20px); 
 				}
+				to { 
+					opacity: 1; 
+					transform: translateY(0); 
+				}
+			}
+
+			.animate-fade-in {
+				animation: fadeIn 0.6s ease-out;
+			}
+
+			.animate-slide-up {
+				animation: slideUp 0.6s ease-out;
 			}
 		</style>
 	</body>

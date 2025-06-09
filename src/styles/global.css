@@ -3,3 +3,44 @@
 /* Component Stylesheets */
 @import "./video-cards.css";
 @import "./song-folders.css";
+
+/* Header Styles - Two Distinct Types */
+
+/* Style 1: Silvery Gradient (slightly thicker than before) */
+.header-style-silver {
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 300; /* Slightly thicker than 200 */
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  overflow: visible;
+}
+
+/* Style 2: Blue Gradient (thicker, #8cb0de bottom left to white top right) */
+.header-style-blue {
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  font-weight: 700; /* Much thicker/bolder */
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #8cb0de 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  overflow: visible;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .header-style-silver {
+    font-weight: 400; /* Slightly bolder on mobile for readability */
+  }
+  
+  .header-style-blue {
+    font-weight: 800; /* Even bolder on mobile */
+  }
+}
