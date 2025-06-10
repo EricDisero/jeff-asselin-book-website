@@ -22,10 +22,11 @@ export interface Props {
 const { video } = Astro.props;
 
 const typeColors = {
-  counting: 'bg-purple-500',
-  performance: 'bg-blue-500',
-  duet: 'bg-pink-500',
-  breakdown: 'bg-gray-500'
+  'with counting': 'bg-purple-500',
+  'practice tempo': 'bg-blue-500',
+  'performance tempo': 'bg-red-500',
+  'duet': 'bg-pink-500',
+  'breakdown': 'bg-gray-500'
 } as const;
 ---
 
@@ -81,19 +82,19 @@ const typeColors = {
     
     <!-- Tags Row 1: Type & Part Type -->
     <div class="flex flex-wrap gap-2">
-      <span class={`px-2 py-1 rounded-full text-xs font-medium text-white ${typeColors[video.type as keyof typeof typeColors]}`}>
-        {video.type}
+      <span class={`px-2 py-1 rounded-full text-xs font-medium text-white ${typeColors[video.type as keyof typeof typeColors] || 'bg-gray-500'}`}>
+        {video.type === 'with counting' ? 'With Counting' : 
+         video.type === 'practice tempo' ? 'Practice Tempo' :
+         video.type === 'performance tempo' ? 'Performance Tempo' :
+         video.type === 'duet' ? 'Duet' : 
+         video.type}
       </span>
       {video.partType && (
         <span class="px-2 py-1 rounded-full text-xs font-medium text-white bg-green-500">
           {video.partType}
         </span>
       )}
-      {video.meter && (
-        <span class="px-2 py-1 rounded-full text-xs font-medium text-white bg-purple-500">
-          {video.meter}
-        </span>
-      )}
+      {/* Meter display removed - book doesn't specify meter types */}
     </div>
     
     <!-- Tags Row 2: Rudiments -->

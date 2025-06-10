@@ -5,6 +5,11 @@
 <section class="hero" id="hero">
   <div class="hero-container">
     <div class="hero-content">
+      <!-- Eyebrow - Ideal Client Profile -->
+      <div class="hero-eyebrow">
+        Drummers & Music Educators
+      </div>
+      
       <h1 class="hero-title">
         <span class="header-style-silver">Master the Art of</span>
         <span class="header-style-blue hero-title-main">Snare Drumming</span>
@@ -19,9 +24,29 @@
         <button class="btn-primary btn-amazon">
           <span>Buy on Amazon</span>
           <div class="btn-bg"></div>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-          </svg>
         </button>
+        
+        <!-- Star Rating -->
+        <div class="star-rating">
+          <div class="stars">
+            <svg class="star filled" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="star filled" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="star filled" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="star filled" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <svg class="star filled" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <span class="rating-text">4.9 out of 5 stars</span>
+        </div>
       </div>
     </div>
     
@@ -100,6 +125,28 @@
     z-index: 2;
   }
 
+  /* Eyebrow styling */
+  .hero-eyebrow {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8cb0de;
+    margin-bottom: 0.5rem;
+    animation: textBlurIn 1.2s ease-out both;
+    position: relative;
+  }
+
+  .hero-eyebrow::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 280px;
+    height: 2px;
+    background: linear-gradient(90deg, #8cb0de 0%, #8cb0de 20%, transparent 100%);
+  }
+
   .hero-title {
     display: flex;
     flex-direction: column;
@@ -133,6 +180,39 @@
   .btn-icon {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  /* Star Rating Styling */
+  .star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    animation: textBlurIn 1.2s ease-out 0.9s both;
+  }
+
+  .stars {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .star {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #fbbf24;
+    transition: all 0.2s ease;
+  }
+
+  .star.filled {
+    color: #fbbf24;
+    filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.3));
+  }
+
+  .rating-text {
+    font-size: 0.9rem;
+    color: #cccccc;
+    font-weight: 500;
+    margin-left: 0.25rem;
   }
 
   .hero-image {
@@ -332,6 +412,16 @@
 
     .hero-subtitle {
       max-width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      margin-bottom: -0.5rem;
+    }
+
+    .star-rating {
+      justify-content: center;
+      margin-top: 1.5rem;
     }
 
     .scroll-indicator {
